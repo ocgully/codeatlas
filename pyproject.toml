@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codemap"
+version = "0.2.0"
+description = "Layered, AI-friendly codemap CLI for agent consumption. Produces systems/contracts/symbols slices in JSON."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [{ name = "Christopher Gulliver" }]
+keywords = ["codemap", "ai", "agents", "code-intelligence", "rust", "unity", "dart"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Homepage = "https://github.com/ocgully/codemap"
+Repository = "https://github.com/ocgully/codemap"
+Issues = "https://github.com/ocgully/codemap/issues"
+
+[project.scripts]
+codemap = "codemap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codemap*"]
