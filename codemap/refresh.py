@@ -10,6 +10,9 @@ from codemap import boundaries as boundaries_mod
 from codemap.detect import detect
 from codemap.render import systems_md, contract_md, graph_md, boundaries_md
 from codemap.stacks import rust, unity, dart, ts
+from codemap.stacks import rust_assets, unity_assets, dart_assets
+
+from codemap import SCHEMA_VERSION
 
 
 def _write_json(path: Path, data: dict) -> None:
@@ -70,6 +73,72 @@ def _refresh_ts(project_root: Path, codemap_dir: Path, affected: Optional[Set[st
     return systems_doc, 0
 
 
+# ---------------------------------------------------------------------------
+# Layer 4 — assets + strings
+# ---------------------------------------------------------------------------
+
+def _empty_layer4(stack: str, layer: str) -> dict:
+    """Placeholder payload for stacks with no Layer 4 implementation yet."""
+    key = "assets" if layer == "assets" else "strings"
+    return {
+        "schema_version": SCHEMA_VERSION,
+        "layer": layer,
+        "stack": stack,
+        "status": "not_implemented",
+        "note": (
+            f"Layer 4 {layer} enumeration is not implemented for stack '{stack}'. "
+            "Returning an empty list so downstream consumers can proceed safely."
+        ),
+        key: [],
+    }
+
+
+def _refresh_layer4(stack: str, project_root: Path, codemap_dir: Path) -> None:
+    """Write .codemap/assets.json + .codemap/strings.json for the active stack.
+
+    Stacks without a Layer 4 module get a `status: not_implemented` payload so
+    callers always find a valid JSON document at the expected path. Any
+    per-stack failure is caught and swallowed into a status payload — Layer 4
+    must never abort a full refresh.
+    """
+    assets_path = codemap_dir / "assets.json"
+    strings_path = codemap_dir / "strings.json"
+
+    if stack == "rust":
+        mod = rust_assets
+    elif stack == "unity":
+        mod = unity_assets
+    elif stack == "dart":
+        mod = dart_assets
+    else:
+        _write_json(assets_path, _empty_layer4(stack, "assets"))
+        _write_json(strings_path, _empty_layer4(stack, "strings"))
+        return
+
+    try:
+        _write_json(assets_path, mod.build_assets(project_root))
+    except Exception as exc:  # noqa: BLE001 — never abort refresh
+        _write_json(assets_path, {
+            "schema_version": SCHEMA_VERSION,
+            "layer": "assets",
+            "stack": stack,
+            "status": "error",
+            "error": str(exc),
+            "assets": [],
+        })
+    try:
+        _write_json(strings_path, mod.build_strings(project_root))
+    except Exception as exc:  # noqa: BLE001
+        _write_json(strings_path, {
+            "schema_version": SCHEMA_VERSION,
+            "layer": "strings",
+            "stack": stack,
+            "status": "error",
+            "error": str(exc),
+            "strings": [],
+        })
+
+
 def refresh(project_root: Path, *, affected: Optional[Set[str]] = None) -> dict:
     """Regenerate all codemap artefacts (or only `affected` systems' Layer 2)."""
     codemap_dir = paths.ensure_codemap_dir(project_root)
@@ -95,6 +164,12 @@ def refresh(project_root: Path, *, affected: Optional[Set[str]] = None) -> dict:
             f"stack '{stack}' detected but Layer 1 not yet implemented (implemented: rust, unity, dart, ts)"
         )
 
+    # Layer 4: assets + user-facing strings. Always regenerated on a full
+    # refresh — asset sets shift independently of code, and the scan is fast.
+    # Incremental (`affected`) refreshes skip Layer 4 to stay cheap.
+    if affected is None:
+        _refresh_layer4(stack, project_root, codemap_dir)
+
     # Visual views regenerate every refresh so `.codemap/graph.md` +
     # `boundaries.md` stay current alongside the JSON sources of truth.
     try:
@@ -104,10 +179,26 @@ def refresh(project_root: Path, *, affected: Optional[Set[str]] = None) -> dict:
     (codemap_dir / "graph.md").write_text(graph_md.render(systems_doc, bnd_doc), encoding="utf-8")
     (codemap_dir / "boundaries.md").write_text(boundaries_md.render(systems_doc, bnd_doc), encoding="utf-8")
 
+    # Count Layer 4 results (read back; cheap — already written).
+    assets_count = 0
+    strings_count = 0
+    try:
+        with (codemap_dir / "assets.json").open("r", encoding="utf-8") as f:
+            assets_count = len(json.load(f).get("assets") or [])
+    except (OSError, ValueError):
+        pass
+    try:
+        with (codemap_dir / "strings.json").open("r", encoding="utf-8") as f:
+            strings_count = len(json.load(f).get("strings") or [])
+    except (OSError, ValueError):
+        pass
+
     return {
         "stack": stack,
         "systems_count": len(systems_doc.get("systems", [])),
         "contracts_written": contract_count,
+        "assets_count": assets_count,
+        "strings_count": strings_count,
     }
 
 
