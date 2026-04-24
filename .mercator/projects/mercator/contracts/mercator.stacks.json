@@ -1,0 +1,226 @@
+{
+  "schema_version": "1",
+  "layer": "contract",
+  "system": "mercator.stacks",
+  "stack": "python",
+  "source_tool": "python_ast_contract",
+  "source_tool_note": "Public surface = top-level `def` / `async def` / `class` whose names don't start with '_'. Module-level constants (UPPER_CASE assignments) are included as 'const' items. Only files directly inside the package are scanned; sub-packages are their own systems.",
+  "files_scanned": 10,
+  "counts": {
+    "fn": 17,
+    "const": 13
+  },
+  "items": [
+    {
+      "kind": "fn",
+      "name": "classify",
+      "file": "mercator/stacks/_asset_common.py",
+      "line": 62,
+      "signature": "def classify(path: Path) -> Optional[str]"
+    },
+    {
+      "kind": "fn",
+      "name": "safe_size",
+      "file": "mercator/stacks/_asset_common.py",
+      "line": 67,
+      "signature": "def safe_size(path: Path) -> Optional[int]"
+    },
+    {
+      "kind": "const",
+      "name": "SKIP_DIRS",
+      "file": "mercator/stacks/dart.py",
+      "line": 22,
+      "signature": "SKIP_DIRS = {'.dart_tool', 'build', '.pub-cache', 'node_modules', '.git'}"
+    },
+    {
+      "kind": "fn",
+      "name": "build_systems",
+      "file": "mercator/stacks/dart.py",
+      "line": 96,
+      "signature": "def build_systems(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "SKIP_DIRS",
+      "file": "mercator/stacks/dart_assets.py",
+      "line": 24,
+      "signature": "SKIP_DIRS = dart_stack.SKIP_DIRS"
+    },
+    {
+      "kind": "fn",
+      "name": "build_assets",
+      "file": "mercator/stacks/dart_assets.py",
+      "line": 166,
+      "signature": "def build_assets(project_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "build_strings",
+      "file": "mercator/stacks/dart_assets.py",
+      "line": 270,
+      "signature": "def build_strings(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "SKIP_DIRS",
+      "file": "mercator/stacks/python.py",
+      "line": 37,
+      "signature": "SKIP_DIRS = {'.git', '.hg', '.svn', '.venv', 'venv', 'env', '.env', '__pycache__', 'build', "
+    },
+    {
+      "kind": "fn",
+      "name": "build_systems",
+      "file": "mercator/stacks/python.py",
+      "line": 355,
+      "signature": "def build_systems(project_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "build_contract",
+      "file": "mercator/stacks/python.py",
+      "line": 451,
+      "signature": "def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "build_systems",
+      "file": "mercator/stacks/rust.py",
+      "line": 23,
+      "signature": "def build_systems(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "ITEM_RE",
+      "file": "mercator/stacks/rust.py",
+      "line": 83,
+      "signature": "ITEM_RE = re.compile('^pub\\\\s+\\n        (?:(?:async|unsafe|const|extern(?:\\\\s+\"[^\"]*\")?|de"
+    },
+    {
+      "kind": "const",
+      "name": "IDENT_RE",
+      "file": "mercator/stacks/rust.py",
+      "line": 91,
+      "signature": "IDENT_RE = re.compile('([A-Za-z_][A-Za-z0-9_]*)')"
+    },
+    {
+      "kind": "fn",
+      "name": "strip_rust_source",
+      "file": "mercator/stacks/rust.py",
+      "line": 94,
+      "signature": "def strip_rust_source(text: str) -> str"
+    },
+    {
+      "kind": "fn",
+      "name": "build_contract",
+      "file": "mercator/stacks/rust.py",
+      "line": 310,
+      "signature": "def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "DEFN_RE",
+      "file": "mercator/stacks/rust.py",
+      "line": 355,
+      "signature": "DEFN_RE = re.compile('^(?:pub(?:\\\\([^)]*\\\\))?\\\\s+)?\\n        (?:(?:async|unsafe|const|exte"
+    },
+    {
+      "kind": "fn",
+      "name": "find_symbol",
+      "file": "mercator/stacks/rust.py",
+      "line": 365,
+      "signature": "def find_symbol(project_root: Path, systems_doc: dict, name: str, want_kinds) -> List[dict]"
+    },
+    {
+      "kind": "const",
+      "name": "ASSET_DIRS",
+      "file": "mercator/stacks/rust_assets.py",
+      "line": 26,
+      "signature": "ASSET_DIRS = ('assets', 'res', 'resources', 'static')"
+    },
+    {
+      "kind": "const",
+      "name": "SKIP_DIRS",
+      "file": "mercator/stacks/rust_assets.py",
+      "line": 27,
+      "signature": "SKIP_DIRS = {'target', '.git', 'node_modules', '.cargo', '.codemap', '.mercator'}"
+    },
+    {
+      "kind": "const",
+      "name": "UI_SETTER_RE",
+      "file": "mercator/stacks/rust_assets.py",
+      "line": 31,
+      "signature": "UI_SETTER_RE = re.compile('\\\\.(text|title|label|placeholder|tooltip|button|heading|caption|hint"
+    },
+    {
+      "kind": "fn",
+      "name": "build_assets",
+      "file": "mercator/stacks/rust_assets.py",
+      "line": 93,
+      "signature": "def build_assets(project_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "build_strings",
+      "file": "mercator/stacks/rust_assets.py",
+      "line": 156,
+      "signature": "def build_strings(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "SKIP_DIRS",
+      "file": "mercator/stacks/ts.py",
+      "line": 42,
+      "signature": "SKIP_DIRS = {'node_modules', '.git', '.yarn', '.pnpm-store', 'dist', 'build', 'out', 'covera"
+    },
+    {
+      "kind": "fn",
+      "name": "build_systems",
+      "file": "mercator/stacks/ts.py",
+      "line": 308,
+      "signature": "def build_systems(project_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "build_systems",
+      "file": "mercator/stacks/unity.py",
+      "line": 70,
+      "signature": "def build_systems(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "META_SUFFIX",
+      "file": "mercator/stacks/unity_assets.py",
+      "line": 32,
+      "signature": "META_SUFFIX = '.meta'"
+    },
+    {
+      "kind": "fn",
+      "name": "build_assets",
+      "file": "mercator/stacks/unity_assets.py",
+      "line": 51,
+      "signature": "def build_assets(project_root: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "PO_MSGID_RE",
+      "file": "mercator/stacks/unity_assets.py",
+      "line": 104,
+      "signature": "PO_MSGID_RE = re.compile('^\\\\s*msgid\\\\s+\"(.*)\"\\\\s*$')"
+    },
+    {
+      "kind": "const",
+      "name": "PO_MSGSTR_RE",
+      "file": "mercator/stacks/unity_assets.py",
+      "line": 105,
+      "signature": "PO_MSGSTR_RE = re.compile('^\\\\s*msgstr\\\\s+\"(.*)\"\\\\s*$')"
+    },
+    {
+      "kind": "fn",
+      "name": "build_strings",
+      "file": "mercator/stacks/unity_assets.py",
+      "line": 175,
+      "signature": "def build_strings(project_root: Path) -> dict"
+    }
+  ],
+  "item_count": 30
+}

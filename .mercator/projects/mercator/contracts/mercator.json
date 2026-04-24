@@ -1,0 +1,548 @@
+{
+  "schema_version": "1",
+  "layer": "contract",
+  "system": "mercator",
+  "stack": "python",
+  "source_tool": "python_ast_contract",
+  "source_tool_note": "Public surface = top-level `def` / `async def` / `class` whose names don't start with '_'. Module-level constants (UPPER_CASE assignments) are included as 'const' items. Only files directly inside the package are scanned; sub-packages are their own systems.",
+  "files_scanned": 14,
+  "counts": {
+    "const": 21,
+    "fn": 55
+  },
+  "items": [
+    {
+      "kind": "const",
+      "name": "SCHEMA_VERSION",
+      "file": "mercator/__init__.py",
+      "line": 15,
+      "signature": "SCHEMA_VERSION = '1'"
+    },
+    {
+      "kind": "const",
+      "name": "SEVERITIES",
+      "file": "mercator/boundaries.py",
+      "line": 60,
+      "signature": "SEVERITIES = ('info', 'warning', 'error')"
+    },
+    {
+      "kind": "fn",
+      "name": "load_path",
+      "file": "mercator/boundaries.py",
+      "line": 63,
+      "signature": "def load_path(path: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "load",
+      "file": "mercator/boundaries.py",
+      "line": 98,
+      "signature": "def load(project_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "evaluate",
+      "file": "mercator/boundaries.py",
+      "line": 176,
+      "signature": "def evaluate(systems_doc: dict, boundaries_doc: dict) -> List[dict]"
+    },
+    {
+      "kind": "fn",
+      "name": "summarise_rules",
+      "file": "mercator/boundaries.py",
+      "line": 229,
+      "signature": "def summarise_rules(systems_doc: dict, boundaries_doc: dict) -> List[dict]"
+    },
+    {
+      "kind": "fn",
+      "name": "has_blocking_violations",
+      "file": "mercator/boundaries.py",
+      "line": 266,
+      "signature": "def has_blocking_violations(violations: List[dict]) -> bool"
+    },
+    {
+      "kind": "const",
+      "name": "SCAFFOLD_JSON",
+      "file": "mercator/boundaries.py",
+      "line": 275,
+      "signature": "SCAFFOLD_JSON = '{\\n  \"schema_version\": \"1\",\\n\\n  \"_doc\": \"Edit this file to declare forbidden s"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_init",
+      "file": "mercator/cli.py",
+      "line": 50,
+      "signature": "def cmd_init(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_refresh",
+      "file": "mercator/cli.py",
+      "line": 75,
+      "signature": "def cmd_refresh(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_query",
+      "file": "mercator/cli.py",
+      "line": 129,
+      "signature": "def cmd_query(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_diff",
+      "file": "mercator/cli.py",
+      "line": 225,
+      "signature": "def cmd_diff(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_hooks",
+      "file": "mercator/cli.py",
+      "line": 247,
+      "signature": "def cmd_hooks(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_migrate",
+      "file": "mercator/cli.py",
+      "line": 276,
+      "signature": "def cmd_migrate(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_check",
+      "file": "mercator/cli.py",
+      "line": 304,
+      "signature": "def cmd_check(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_render",
+      "file": "mercator/cli.py",
+      "line": 374,
+      "signature": "def cmd_render(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_boundaries",
+      "file": "mercator/cli.py",
+      "line": 419,
+      "signature": "def cmd_boundaries(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_projects",
+      "file": "mercator/cli.py",
+      "line": 472,
+      "signature": "def cmd_projects(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_atlas",
+      "file": "mercator/cli.py",
+      "line": 501,
+      "signature": "def cmd_atlas(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "cmd_info",
+      "file": "mercator/cli.py",
+      "line": 521,
+      "signature": "def cmd_info(args) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "main",
+      "file": "mercator/cli.py",
+      "line": 640,
+      "signature": "def main(argv = None) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "deprecated_main",
+      "file": "mercator/cli.py",
+      "line": 651,
+      "signature": "def deprecated_main(argv = None) -> int"
+    },
+    {
+      "kind": "fn",
+      "name": "detect",
+      "file": "mercator/detect.py",
+      "line": 29,
+      "signature": "def detect(project_root: Path) -> str"
+    },
+    {
+      "kind": "fn",
+      "name": "layer_support",
+      "file": "mercator/detect.py",
+      "line": 49,
+      "signature": "def layer_support(stack: str) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "SYSTEMS_PATH",
+      "file": "mercator/diff.py",
+      "line": 29,
+      "signature": "SYSTEMS_PATH = '.mercator/systems.json'"
+    },
+    {
+      "kind": "const",
+      "name": "CONTRACT_DIR",
+      "file": "mercator/diff.py",
+      "line": 30,
+      "signature": "CONTRACT_DIR = '.mercator/contracts'"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_SYSTEMS_PATH",
+      "file": "mercator/diff.py",
+      "line": 31,
+      "signature": "LEGACY_SYSTEMS_PATH = '.codemap/systems.json'"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_CONTRACT_DIR",
+      "file": "mercator/diff.py",
+      "line": 32,
+      "signature": "LEGACY_CONTRACT_DIR = '.codemap/contracts'"
+    },
+    {
+      "kind": "fn",
+      "name": "compute_diff",
+      "file": "mercator/diff.py",
+      "line": 157,
+      "signature": "def compute_diff(project_root: Path, ref_a: str, ref_b: str) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "render_diff_md",
+      "file": "mercator/diff.py",
+      "line": 211,
+      "signature": "def render_diff_md(diff: dict) -> str"
+    },
+    {
+      "kind": "const",
+      "name": "MARKER_BEGIN",
+      "file": "mercator/hooks.py",
+      "line": 21,
+      "signature": "MARKER_BEGIN = '# --- mercator hook (managed; do not edit this block) ---'"
+    },
+    {
+      "kind": "const",
+      "name": "MARKER_END",
+      "file": "mercator/hooks.py",
+      "line": 22,
+      "signature": "MARKER_END = '# --- /mercator hook ---'"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_MARKER_BEGIN",
+      "file": "mercator/hooks.py",
+      "line": 27,
+      "signature": "LEGACY_MARKER_BEGIN = '# --- codemap hook (managed; do not edit this block) ---'"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_MARKER_END",
+      "file": "mercator/hooks.py",
+      "line": 28,
+      "signature": "LEGACY_MARKER_END = '# --- /codemap hook ---'"
+    },
+    {
+      "kind": "const",
+      "name": "HOOK_BODY",
+      "file": "mercator/hooks.py",
+      "line": 30,
+      "signature": "HOOK_BODY = '\\n# Regenerate affected slices of .mercator/ after each commit.\\n# Skip during "
+    },
+    {
+      "kind": "fn",
+      "name": "install",
+      "file": "mercator/hooks.py",
+      "line": 86,
+      "signature": "def install(project_root: Path, launcher_path: Optional[Path] = None) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "uninstall",
+      "file": "mercator/hooks.py",
+      "line": 117,
+      "signature": "def uninstall(project_root: Path) -> bool"
+    },
+    {
+      "kind": "fn",
+      "name": "write",
+      "file": "mercator/meta.py",
+      "line": 44,
+      "signature": "def write(project_root: Path, mercator_dir: Path, stack: str) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "write_project",
+      "file": "mercator/meta.py",
+      "line": 58,
+      "signature": "def write_project(repo_root: Path, project_storage: Path, stack: str) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "read",
+      "file": "mercator/meta.py",
+      "line": 73,
+      "signature": "def read(mercator_dir: Path) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_DIR",
+      "file": "mercator/migrate.py",
+      "line": 28,
+      "signature": "LEGACY_DIR = '.codemap'"
+    },
+    {
+      "kind": "const",
+      "name": "NEW_DIR",
+      "file": "mercator/migrate.py",
+      "line": 29,
+      "signature": "NEW_DIR = '.mercator'"
+    },
+    {
+      "kind": "fn",
+      "name": "migrate",
+      "file": "mercator/migrate.py",
+      "line": 32,
+      "signature": "def migrate(project_root: Path, *, dry_run: bool = False) -> dict"
+    },
+    {
+      "kind": "const",
+      "name": "STACK_MARKERS",
+      "file": "mercator/paths.py",
+      "line": 19,
+      "signature": "STACK_MARKERS = ('Cargo.toml', 'package.json', 'pyproject.toml', 'setup.py', 'go.mod', 'go.work'"
+    },
+    {
+      "kind": "const",
+      "name": "UNITY_DIR_MARKERS",
+      "file": "mercator/paths.py",
+      "line": 30,
+      "signature": "UNITY_DIR_MARKERS = ('Assets', 'ProjectSettings', 'Packages')"
+    },
+    {
+      "kind": "const",
+      "name": "STORAGE_DIR",
+      "file": "mercator/paths.py",
+      "line": 34,
+      "signature": "STORAGE_DIR = '.mercator'"
+    },
+    {
+      "kind": "const",
+      "name": "LEGACY_STORAGE_DIR",
+      "file": "mercator/paths.py",
+      "line": 35,
+      "signature": "LEGACY_STORAGE_DIR = '.codemap'"
+    },
+    {
+      "kind": "fn",
+      "name": "find_project_root",
+      "file": "mercator/paths.py",
+      "line": 38,
+      "signature": "def find_project_root(start: Optional[Path] = None) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "set_storage_override",
+      "file": "mercator/paths.py",
+      "line": 62,
+      "signature": "def set_storage_override(path: Optional[Path]) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "mercator_dir",
+      "file": "mercator/paths.py",
+      "line": 74,
+      "signature": "def mercator_dir(project_root: Path) -> Path"
+    },
+    {
+      "kind": "const",
+      "name": "codemap_dir",
+      "file": "mercator/paths.py",
+      "line": 95,
+      "signature": "codemap_dir = mercator_dir"
+    },
+    {
+      "kind": "fn",
+      "name": "ensure_mercator_dir",
+      "file": "mercator/paths.py",
+      "line": 98,
+      "signature": "def ensure_mercator_dir(project_root: Path) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "project_storage_dir",
+      "file": "mercator/paths.py",
+      "line": 107,
+      "signature": "def project_storage_dir(repo_storage: Path, project_id: str) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "ensure_project_storage_dir",
+      "file": "mercator/paths.py",
+      "line": 117,
+      "signature": "def ensure_project_storage_dir(repo_storage: Path, project_id: str) -> Path"
+    },
+    {
+      "kind": "const",
+      "name": "ensure_codemap_dir",
+      "file": "mercator/paths.py",
+      "line": 127,
+      "signature": "ensure_codemap_dir = ensure_mercator_dir"
+    },
+    {
+      "kind": "const",
+      "name": "UNITY_MARKERS",
+      "file": "mercator/projects.py",
+      "line": 97,
+      "signature": "UNITY_MARKERS = ('Assets', 'ProjectSettings', 'Packages')"
+    },
+    {
+      "kind": "fn",
+      "name": "detect_projects",
+      "file": "mercator/projects.py",
+      "line": 338,
+      "signature": "def detect_projects(repo_root: Path, *, max_depth: int = 8) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "write_projects",
+      "file": "mercator/projects.py",
+      "line": 424,
+      "signature": "def write_projects(repo_root: Path, mercator_dir: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "load_projects",
+      "file": "mercator/projects.py",
+      "line": 436,
+      "signature": "def load_projects(mercator_dir: Path) -> Optional[dict]"
+    },
+    {
+      "kind": "fn",
+      "name": "resolve_project",
+      "file": "mercator/query.py",
+      "line": 27,
+      "signature": "def resolve_project(repo_root: Path, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "projects",
+      "file": "mercator/query.py",
+      "line": 82,
+      "signature": "def projects(repo_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "repo_edges",
+      "file": "mercator/query.py",
+      "line": 91,
+      "signature": "def repo_edges(repo_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "systems",
+      "file": "mercator/query.py",
+      "line": 105,
+      "signature": "def systems(repo_root: Path, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "deps",
+      "file": "mercator/query.py",
+      "line": 109,
+      "signature": "def deps(repo_root: Path, target: str, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "contract",
+      "file": "mercator/query.py",
+      "line": 129,
+      "signature": "def contract(repo_root: Path, system_name: str, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "symbol",
+      "file": "mercator/query.py",
+      "line": 140,
+      "signature": "def symbol(repo_root: Path, name: str, kinds: Union[str, Set[str]] = 'any', project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "touches",
+      "file": "mercator/query.py",
+      "line": 169,
+      "signature": "def touches(repo_root: Path, file_path: str, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "system",
+      "file": "mercator/query.py",
+      "line": 265,
+      "signature": "def system(repo_root: Path, name: str, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "boundaries",
+      "file": "mercator/query.py",
+      "line": 286,
+      "signature": "def boundaries(repo_root: Path, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "violations",
+      "file": "mercator/query.py",
+      "line": 310,
+      "signature": "def violations(repo_root: Path, project_id: Optional[str] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "refresh_one_project",
+      "file": "mercator/refresh.py",
+      "line": 177,
+      "signature": "def refresh_one_project(repo_root: Path, repo_storage: Path, project: dict, *, affected: Optional[Set[str]] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "refresh",
+      "file": "mercator/refresh.py",
+      "line": 301,
+      "signature": "def refresh(repo_root: Path, *, project_id: Optional[str] = None, affected: Optional[Set[str]] = None) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "files_to_affected_systems",
+      "file": "mercator/refresh.py",
+      "line": 373,
+      "signature": "def files_to_affected_systems(repo_root: Path, changed_files: Iterable[str]) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "compute_edges",
+      "file": "mercator/repo_edges.py",
+      "line": 227,
+      "signature": "def compute_edges(repo_root: Path) -> dict"
+    },
+    {
+      "kind": "fn",
+      "name": "write_edges",
+      "file": "mercator/repo_edges.py",
+      "line": 313,
+      "signature": "def write_edges(repo_root: Path) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "load_edges",
+      "file": "mercator/repo_edges.py",
+      "line": 321,
+      "signature": "def load_edges(repo_storage: Path) -> Optional[dict]"
+    }
+  ],
+  "item_count": 76
+}

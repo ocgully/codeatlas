@@ -1,0 +1,25 @@
+{
+  "schema_version": "1",
+  "layer": "projects",
+  "repo_root": ".",
+  "project_count": 1,
+  "stacks": [
+    "python"
+  ],
+  "projects": [
+    {
+      "id": "mercator",
+      "name": "mercator",
+      "stack": "python",
+      "root": ".",
+      "manifest": "pyproject.toml",
+      "manifest_name": "mercator",
+      "category": "tool",
+      "tags": []
+    }
+  ],
+  "skipped_count": 0,
+  "skipped_sample": [],
+  "source_tool": "mercator_project_walk",
+  "source_tool_note": "Auto-detected by walking the repo for stack manifests. Override via .mercator/repo.toml (include/exclude/skip_dirs/[projects.<id>])."
+}

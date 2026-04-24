@@ -1,0 +1,79 @@
+{
+  "schema_version": "1",
+  "layer": "contract",
+  "system": "mercator.render",
+  "stack": "python",
+  "source_tool": "python_ast_contract",
+  "source_tool_note": "Public surface = top-level `def` / `async def` / `class` whose names don't start with '_'. Module-level constants (UPPER_CASE assignments) are included as 'const' items. Only files directly inside the package are scanned; sub-packages are their own systems.",
+  "files_scanned": 6,
+  "counts": {
+    "fn": 5,
+    "const": 4
+  },
+  "items": [
+    {
+      "kind": "fn",
+      "name": "write_atlas",
+      "file": "mercator/render/__init__.py",
+      "line": 62,
+      "signature": "def write_atlas(repo_root: Path) -> Path"
+    },
+    {
+      "kind": "fn",
+      "name": "render",
+      "file": "mercator/render/boundaries_md.py",
+      "line": 13,
+      "signature": "def render(systems_doc: dict, boundaries_doc: dict) -> str"
+    },
+    {
+      "kind": "const",
+      "name": "KIND_ORDER",
+      "file": "mercator/render/contract_md.py",
+      "line": 7,
+      "signature": "KIND_ORDER = ['trait', 'struct', 'enum', 'fn', 'type', 'const', 'static', 'macro', 'mod', 'us"
+    },
+    {
+      "kind": "const",
+      "name": "KIND_LABELS",
+      "file": "mercator/render/contract_md.py",
+      "line": 8,
+      "signature": "KIND_LABELS = {'fn': 'Functions', 'struct': 'Structs', 'enum': 'Enums', 'trait': 'Traits', 'ty"
+    },
+    {
+      "kind": "fn",
+      "name": "render",
+      "file": "mercator/render/contract_md.py",
+      "line": 22,
+      "signature": "def render(doc: dict) -> str"
+    },
+    {
+      "kind": "const",
+      "name": "MERMAID_NODE_LIMIT",
+      "file": "mercator/render/graph_md.py",
+      "line": 25,
+      "signature": "MERMAID_NODE_LIMIT = 50"
+    },
+    {
+      "kind": "fn",
+      "name": "render",
+      "file": "mercator/render/graph_md.py",
+      "line": 41,
+      "signature": "def render(systems_doc: dict, boundaries_doc: dict) -> str"
+    },
+    {
+      "kind": "const",
+      "name": "MERMAID_NODE_LIMIT",
+      "file": "mercator/render/systems_md.py",
+      "line": 7,
+      "signature": "MERMAID_NODE_LIMIT = 20"
+    },
+    {
+      "kind": "fn",
+      "name": "render",
+      "file": "mercator/render/systems_md.py",
+      "line": 14,
+      "signature": "def render(doc: dict) -> str"
+    }
+  ],
+  "item_count": 9
+}

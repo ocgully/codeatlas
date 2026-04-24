@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "layer": "repo-edges",
+  "project_count": 1,
+  "edge_count": 0,
+  "project_names": {
+    "mercator": [
+      "mercator"
+    ]
+  },
+  "edges": [],
+  "source_tool": "mercator_repo_edges",
+  "source_tool_note": "Implicit cross-project edges inferred by matching each project's external dependency names against other projects' published manifest names. Stack-specific resolvers per Cargo / npm / pyproject / pubspec."
+}

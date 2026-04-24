@@ -1,0 +1,109 @@
+{
+  "schema_version": "1",
+  "layer": "systems",
+  "stack": "python",
+  "project_name": "mercator",
+  "project_version": "0.5.0",
+  "declared_dependencies": [],
+  "source_tool": "python_ast_scan",
+  "source_tool_note": "Layer 1: each directory with __init__.py under the project source root(s) is a system. Intra-project dependency edges are derived from AST-parsed `import` / `from … import` statements; stdlib + third-party imports are listed per-system under `external_imports` but do NOT contribute edges.",
+  "systems": [
+    {
+      "name": "mercator",
+      "version": "0.5.0",
+      "manifest_path": "mercator/__init__.py",
+      "scope_dir": "mercator",
+      "kind": "package",
+      "dependencies": [
+        {
+          "name": "mercator.render"
+        },
+        {
+          "name": "mercator.stacks"
+        }
+      ],
+      "external_imports": [
+        "__future__",
+        "argparse",
+        "datetime",
+        "fnmatch",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "shutil",
+        "stat",
+        "subprocess",
+        "sys",
+        "tomli",
+        "tomllib",
+        "typing",
+        "webbrowser"
+      ]
+    },
+    {
+      "name": "mercator.render",
+      "version": null,
+      "manifest_path": "mercator/render/__init__.py",
+      "scope_dir": "mercator/render",
+      "kind": "package",
+      "dependencies": [
+        {
+          "name": "mercator"
+        },
+        {
+          "name": "mercator.render.atlas"
+        }
+      ],
+      "external_imports": [
+        "__future__",
+        "fnmatch",
+        "json",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "name": "mercator.render.atlas",
+      "version": null,
+      "manifest_path": "mercator/render/atlas/__init__.py",
+      "scope_dir": "mercator/render/atlas",
+      "kind": "package",
+      "dependencies": [],
+      "external_imports": [
+        "__future__",
+        "html",
+        "json",
+        "pathlib",
+        "typing"
+      ]
+    },
+    {
+      "name": "mercator.stacks",
+      "version": null,
+      "manifest_path": "mercator/stacks/__init__.py",
+      "scope_dir": "mercator/stacks",
+      "kind": "package",
+      "dependencies": [
+        {
+          "name": "mercator"
+        }
+      ],
+      "external_imports": [
+        "__future__",
+        "ast",
+        "csv",
+        "io",
+        "json",
+        "os",
+        "pathlib",
+        "re",
+        "shutil",
+        "subprocess",
+        "tomli",
+        "tomllib",
+        "typing"
+      ]
+    }
+  ]
+}

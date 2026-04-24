@@ -1,0 +1,8 @@
+{
+  "schema_version": "1",
+  "layer": "assets",
+  "stack": "python",
+  "status": "not_implemented",
+  "note": "Layer 4 assets enumeration is not implemented for stack 'python'. Returning an empty list so downstream consumers can proceed safely.",
+  "assets": []
+}
