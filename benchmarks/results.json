@@ -1,7 +1,7 @@
 {
   "version": "mercator 0.5.0 (schema 1)",
-  "git_sha": "8a42f765cf461f6f47eec768d2a83444f62e5388",
-  "timestamp_utc": "2026-04-25T01:04:14+00:00",
+  "git_sha": "515a3a5c79285ccc24c87c2ca4317a9ad5c59082",
+  "timestamp_utc": "2026-04-25T04:34:09+00:00",
   "machine": "=== Machine ===\nOS:         Microsoft Windows 11 Home (10.0.26200)\nSystem:     Micro-Star International MS-7B86\nCPU:        AMD Ryzen 7 2700X (8 cores / 16 threads, Zen+ 12nm, 2018)\nRAM:        32 GB\n\n=== Storage (5 disks) ===\nPrimary work / repo disk: Samsung SSD 980 PRO with Heatsink 2TB (NVMe PCIe 4.0)\nSecondary SSD:            Samsung SSD 850 EVO 500GB (SATA)\nHDDs:                     SAMSUNG HD502HJ x2 (466 GB SATA), WDC WD30EZRZ 2.8TB (SATA)\n\n=== Tooling ===\nPython:     3.12.10\ngit:        2.37.3 (Git for Windows)\n",
   "results": [
     {
@@ -13,10 +13,10 @@
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\ripgrep",
       "mercator": {
-        "init_seconds": 4.887084999936633,
+        "init_seconds": 11.900342000066303,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 5.190040600020438,
+        "refresh_seconds": 6.1660202000057325,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
@@ -131,10 +131,10 @@
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\bevy",
       "mercator": {
-        "init_seconds": 53.36203820002265,
+        "init_seconds": 137.07522350002546,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 64.38904180005193,
+        "refresh_seconds": 107.42640340002254,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
@@ -817,53 +817,6 @@
       "storage_dir": "C:\\tmp\\bench-atlases\\bevy"
     },
     {
-      "name": "godot",
-      "url": "https://github.com/godotengine/godot",
-      "category": "C++ game engine (expected fail)",
-      "clone_seconds": 0.0,
-      "skipped_clone": true,
-      "clone_error": null,
-      "clone_path": "C:\\tmp\\bench-clones\\godot",
-      "mercator": {
-        "init_seconds": 3.448001899989322,
-        "init_rc": 0,
-        "init_stderr": null,
-        "refresh_seconds": 4.308962199953385,
-        "refresh_rc": 0,
-        "refresh_stderr": null,
-        "stacks": [
-          "python",
-          "ts"
-        ],
-        "project_count": 2,
-        "projects": [
-          {
-            "id": "platform-web",
-            "name": "godot",
-            "stack": "ts",
-            "category": "app",
-            "systems": 1,
-            "contracts": 1
-          },
-          {
-            "id": "godot",
-            "name": "godot",
-            "stack": "python",
-            "category": "lib",
-            "systems": 0,
-            "contracts": 0
-          }
-        ],
-        "edge_count": 0,
-        "atlas_html_bytes": 32766,
-        "storage_bytes": 158551,
-        "atlas_html_exists": true,
-        "extra_atlas_bytes": 109760,
-        "notes": []
-      },
-      "storage_dir": "C:\\tmp\\bench-atlases\\godot"
-    },
-    {
       "name": "vite",
       "url": "https://github.com/vitejs/vite",
       "category": "TypeScript monorepo",
@@ -872,7 +825,7 @@
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\vite",
       "mercator": {
-        "init_seconds": 2.8655868000350893,
+        "init_seconds": 14.841725299949758,
         "init_rc": 3,
         "init_stderr": "mercator: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)",
         "refresh_seconds": null,
@@ -899,10 +852,10 @@
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\aider",
       "mercator": {
-        "init_seconds": 3.0958466000156477,
+        "init_seconds": 11.312176799983718,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 1.3842024999903515,
+        "refresh_seconds": 4.166235900018364,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
@@ -937,10 +890,10 @@
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\opencode",
       "mercator": {
-        "init_seconds": 80.62209389999043,
+        "init_seconds": 69.35488440003246,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 26.849305300042033,
+        "refresh_seconds": 27.04792849998921,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [

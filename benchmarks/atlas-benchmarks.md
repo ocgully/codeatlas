@@ -24,19 +24,18 @@ git:        2.37.3 (Git for Windows)
 ## Run metadata
 
 - **Mercator:** `mercator 0.5.0 (schema 1)`
-- **Commit:** `8a42f765cf461f6f47eec768d2a83444f62e5388`
-- **Timestamp (UTC):** `2026-04-25T01:04:14+00:00`
+- **Commit:** `515a3a5c79285ccc24c87c2ca4317a9ad5c59082`
+- **Timestamp (UTC):** `2026-04-25T04:34:09+00:00`
 
 ## Summary
 
 | Repo | URL | Stack(s) | Clone | Init | Refresh | Projects | Σ Systems | Σ Contracts | Atlas KB | Storage KB |
 |---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| `ripgrep` | <https://github.com/BurntSushi/ripgrep> | rust | 0.00s* | 4.89s | 5.19s | 11 | 11 | 11 | 678.2 | 781.4 |
-| `bevy` | <https://github.com/bevyengine/bevy> | rust | 0.00s* | 53.36s | 64.39s | 83 | 83 | 83 | 7787.7 | 10278.9 |
-| `godot` | <https://github.com/godotengine/godot> | python, ts | 0.00s* | 3.45s | 4.31s | 2 | 1 | 1 | 139.2 | 154.8 |
-| `vite` | <https://github.com/vitejs/vite> | — | 0.00s* | 2.87s | — | 0 | 0 | 0 | — | — |
-| `aider` | <https://github.com/Aider-AI/aider> | python | 0.00s* | 3.10s | 1.38s | 1 | 7 | 7 | 145.0 | 346.5 |
-| `opencode` | <https://github.com/sst/opencode> | rust, ts | 0.00s* | 80.62s | 26.85s | 23 | 42 | 42 | 3621.6 | 7116.9 |
+| `ripgrep` | <https://github.com/BurntSushi/ripgrep> | rust | 0.00s* | 11.90s | 6.17s | 11 | 11 | 11 | 678.2 | 781.4 |
+| `bevy` | <https://github.com/bevyengine/bevy> | rust | 0.00s* | 137.08s | 107.43s | 83 | 83 | 83 | 7787.7 | 10278.9 |
+| `vite` | <https://github.com/vitejs/vite> | — | 0.00s* | 14.84s | — | 0 | 0 | 0 | — | — |
+| `aider` | <https://github.com/Aider-AI/aider> | python | 0.00s* | 11.31s | 4.17s | 1 | 7 | 7 | 145.0 | 346.5 |
+| `opencode` | <https://github.com/sst/opencode> | rust, ts | 0.00s* | 69.35s | 27.05s | 23 | 42 | 42 | 3621.6 | 7116.9 |
 
 `*` = clone time skipped because the working copy already existed (idempotent re-run).
 
@@ -48,8 +47,8 @@ git:        2.37.3 (Git for Windows)
 - Clone path: `C:\tmp\bench-clones\ripgrep`
 - Storage dir: `C:\tmp\bench-atlases\ripgrep`
 - Stacks: `['rust']`
-- init: 4.89s (rc=0)
-- refresh: 5.19s (rc=0)
+- init: 11.90s (rc=0)
+- refresh: 6.17s (rc=0)
 - Projects detected: **11**
 - Cross-project edges: 18
 - atlas.html: 57,499 bytes + sub-atlases 636,947 bytes
@@ -71,7 +70,7 @@ Projects:
 | `ripgrep` | ripgrep | rust | tool | 1 | 1 |
 | `fuzz` | fuzz | rust | tool | 1 | 1 |
 
-_Why this matters:_ ripgrep is the small-workspace anchor — a single Rust crate with a couple of helper crates. Init in 4.89s sets a floor for what 'fast' looks like; anything slower than this on a comparably-sized tree warrants a look at I/O, not algorithmic cost.
+_Why this matters:_ ripgrep is the small-workspace anchor — a single Rust crate with a couple of helper crates. Init in 11.90s sets a floor for what 'fast' looks like; anything slower than this on a comparably-sized tree warrants a look at I/O, not algorithmic cost.
 
 ### `bevy` — Large Rust game engine
 
@@ -79,8 +78,8 @@ _Why this matters:_ ripgrep is the small-workspace anchor — a single Rust crat
 - Clone path: `C:\tmp\bench-clones\bevy`
 - Storage dir: `C:\tmp\bench-atlases\bevy`
 - Stacks: `['rust']`
-- init: 53.36s (rc=0)
-- refresh: 64.39s (rc=0)
+- init: 137.08s (rc=0)
+- refresh: 107.43s (rc=0)
 - Projects detected: **83**
 - Cross-project edges: 652
 - atlas.html: 1,116,779 bytes + sub-atlases 6,857,781 bytes
@@ -142,29 +141,7 @@ Projects:
 | `crates-bevy_reflect-compile_fail` | bevy_reflect_compile_fail | rust | lib | 1 | 1 |
 | … | _33 more rows omitted_ | | | | |
 
-_Why this matters:_ Bevy is the marquee large Rust monorepo — 83 crates, 83 systems. Init took 53.36s and refresh 64.39s; they should be near-identical because Mercator is fully deterministic and does not cache between runs. The atlas renders one card per crate plus per-crate sub-atlases — this is the run that proves whether atlas size scales linearly with project count or blows up.
-
-### `godot` — C++ game engine (expected fail)
-
-- URL: <https://github.com/godotengine/godot>
-- Clone path: `C:\tmp\bench-clones\godot`
-- Storage dir: `C:\tmp\bench-atlases\godot`
-- Stacks: `['python', 'ts']`
-- init: 3.45s (rc=0)
-- refresh: 4.31s (rc=0)
-- Projects detected: **2**
-- Cross-project edges: 0
-- atlas.html: 32,766 bytes + sub-atlases 109,760 bytes
-- Total storage on disk: 158,551 bytes
-
-Projects:
-
-| id | name | stack | category | systems | contracts |
-|---|---|---|---|---:|---:|
-| `platform-web` | godot | ts | app | 1 | 1 |
-| `godot` | godot | python | lib | 0 | 0 |
-
-_Why this matters:_ Godot is C++ — Mercator has no C++ scanner, but the project walk picked up 2 non-C++ manifest(s) (probably tooling / docs / examples). The numbers reflect those side projects, not the engine itself.
+_Why this matters:_ Bevy is the marquee large Rust monorepo — 83 crates, 83 systems. Init took 137.08s and refresh 107.43s; they should be near-identical because Mercator is fully deterministic and does not cache between runs. The atlas renders one card per crate plus per-crate sub-atlases — this is the run that proves whether atlas size scales linearly with project count or blows up.
 
 ### `vite` — TypeScript monorepo
 
@@ -172,7 +149,7 @@ _Why this matters:_ Godot is C++ — Mercator has no C++ scanner, but the projec
 - Clone path: `C:\tmp\bench-clones\vite`
 - Storage dir: `C:\tmp\bench-atlases\vite`
 - Stacks: `[]`
-- init: 2.87s (rc=3)
+- init: 14.84s (rc=3)
 - refresh: — (rc=None)
 - Projects detected: **0**
 - Cross-project edges: None
@@ -185,7 +162,7 @@ _Why this matters:_ Godot is C++ — Mercator has no C++ scanner, but the projec
 mercator: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
 ```
 
-_Why this matters:_ Vite is a pnpm workspace — exactly the case the new TypeScript Layer 2 scanner targets. Mercator detected 0 packages totalling 0 systems. Refresh (—) vs init (2.87s) is the first real-world data point on whether the TS scanner has the same deterministic behaviour as the Rust/Python ones.
+_Why this matters:_ Vite is a pnpm workspace — exactly the case the new TypeScript Layer 2 scanner targets. Mercator detected 0 packages totalling 0 systems. Refresh (—) vs init (14.84s) is the first real-world data point on whether the TS scanner has the same deterministic behaviour as the Rust/Python ones.
 
 ### `aider` — Python AI/LLM
 
@@ -193,8 +170,8 @@ _Why this matters:_ Vite is a pnpm workspace — exactly the case the new TypeSc
 - Clone path: `C:\tmp\bench-clones\aider`
 - Storage dir: `C:\tmp\bench-atlases\aider`
 - Stacks: `['python']`
-- init: 3.10s (rc=0)
-- refresh: 1.38s (rc=0)
+- init: 11.31s (rc=0)
+- refresh: 4.17s (rc=0)
 - Projects detected: **1**
 - Cross-project edges: 0
 - atlas.html: 148,467 bytes + sub-atlases 0 bytes
@@ -214,8 +191,8 @@ _Why this matters:_ A real Python AI/LLM codebase — 7 systems across 1 project
 - Clone path: `C:\tmp\bench-clones\opencode`
 - Storage dir: `C:\tmp\bench-atlases\opencode`
 - Stacks: `['rust', 'ts']`
-- init: 80.62s (rc=0)
-- refresh: 26.85s (rc=0)
+- init: 69.35s (rc=0)
+- refresh: 27.05s (rc=0)
 - Projects detected: **23**
 - Cross-project edges: 28
 - atlas.html: 672,092 bytes + sub-atlases 3,036,456 bytes
@@ -253,7 +230,6 @@ _Why this matters:_ A TypeScript AI/LLM codebase — 23 package(s), 42 system(s)
 
 ## Detection rough edges
 
-- `godot`: detected 2 project(s) inside a C++ tree — these are auxiliary manifests (docs/tooling/examples), not the engine. Mercator does not yet understand SCons/CMake, so the engine itself is invisible.
 - `vite`: init returned non-zero (3); see per-repo stderr.
 
 ## Notes for re-running

@@ -45,11 +45,6 @@ REPOS = [
         "category": "Large Rust game engine",
     },
     {
-        "name": "godot",
-        "url": "https://github.com/godotengine/godot",
-        "category": "C++ game engine (expected fail)",
-    },
-    {
         "name": "vite",
         "url": "https://github.com/vitejs/vite",
         "category": "TypeScript monorepo",
@@ -495,29 +490,6 @@ def commentary_for(name: str, merc: dict, record: dict) -> str:
             "this is the run that proves whether atlas size scales linearly "
             "with project count or blows up."
         )
-    if name == "godot":
-        if record.get("clone_error"):
-            return (
-                "_Why this matters:_ Godot was included specifically to document "
-                "the C++ failure mode — but the clone itself didn't complete in "
-                "the 2-minute budget on a shallow clone. The Godot tree is "
-                "huge; even with `--depth 1` the working copy alone runs into "
-                "the gigabytes. Users on slower links should expect this."
-            )
-        if proj_count == 0:
-            return (
-                "_Why this matters:_ Godot is C++; Mercator currently has no C++ "
-                "scanner, so detection correctly returns zero projects rather "
-                "than half-misclassifying it. Init still completes quickly because "
-                "there's no work to do beyond the project walk. This is the "
-                "honest answer for users with C++ trees: Mercator is a no-op."
-            )
-        return (
-            "_Why this matters:_ Godot is C++ — Mercator has no C++ scanner, but "
-            f"the project walk picked up {proj_count} non-C++ manifest(s) "
-            "(probably tooling / docs / examples). The numbers reflect those "
-            "side projects, not the engine itself."
-        )
     if name == "vite":
         return (
             f"_Why this matters:_ Vite is a pnpm workspace — exactly the case the "
@@ -570,13 +542,6 @@ def collect_rough_edges(payload: dict) -> list[str]:
             edges.append(f"`{name}`: init returned non-zero ({merc['init_rc']}); see per-repo stderr.")
         if merc.get("refresh_rc") and merc["refresh_rc"] != 0:
             edges.append(f"`{name}`: refresh returned non-zero ({merc['refresh_rc']}); see per-repo stderr.")
-        if name == "godot" and merc.get("project_count", 0) > 0:
-            edges.append(
-                f"`godot`: detected {merc['project_count']} project(s) inside a "
-                "C++ tree — these are auxiliary manifests (docs/tooling/examples), "
-                "not the engine. Mercator does not yet understand SCons/CMake, "
-                "so the engine itself is invisible."
-            )
         if not merc.get("atlas_html_exists") and merc.get("init_rc") == 0:
             edges.append(f"`{name}`: init succeeded but `atlas.html` is missing.")
         # Ratio check: refresh vs init
