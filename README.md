@@ -1,5 +1,9 @@
 # mercator
 
+> **Flotilla plugin.** Mercator ships a `plugin/` directory + `flotilla.yaml`
+> at the repo root, so downstream projects can install it via
+> `flotilla install mercator`. See [`plugin/README.md`](plugin/README.md).
+
 A layered, AI-friendly codemap CLI for **monorepos and single-project repos**.
 Produces structured views of every project in a repo
 (projects → systems → contracts → symbols → assets) under `.mercator/`, and —
