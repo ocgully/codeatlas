@@ -2,7 +2,7 @@
 
 **Stack**: python
 **Systems**: 5
-**Dep edges**: 6
+**Dep edges**: 7
 **DMZ rules**: 0
 **Violations**: 0
 
@@ -23,6 +23,7 @@ graph LR
   mercator_render --> mercator_render_atlas
   mercator_stacks --> mercator
   tests --> mercator
+  tests --> mercator_stacks
 ```
 
 ## 2. DMZ rules

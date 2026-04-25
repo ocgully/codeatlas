@@ -5,11 +5,88 @@
   "stack": "python",
   "source_tool": "python_ast_contract",
   "source_tool_note": "Public surface = top-level `def` / `async def` / `class` whose names don't start with '_'. Module-level constants (UPPER_CASE assignments) are included as 'const' items. Only files directly inside the package are scanned; sub-packages are their own systems.",
-  "files_scanned": 3,
+  "files_scanned": 7,
   "counts": {
-    "fn": 19
+    "fn": 85
   },
   "items": [
+    {
+      "kind": "fn",
+      "name": "test_load_ref_state_empty_when_neither_layout_present",
+      "file": "tests/test_diff.py",
+      "line": 102,
+      "signature": "def test_load_ref_state_empty_when_neither_layout_present(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_ref_state_nested_layout",
+      "file": "tests/test_diff.py",
+      "line": 112,
+      "signature": "def test_load_ref_state_nested_layout(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_ref_state_legacy_mercator_flat_layout",
+      "file": "tests/test_diff.py",
+      "line": 133,
+      "signature": "def test_load_ref_state_legacy_mercator_flat_layout(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_ref_state_legacy_codemap_flat_layout",
+      "file": "tests/test_diff.py",
+      "line": 147,
+      "signature": "def test_load_ref_state_legacy_codemap_flat_layout(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_compute_diff_project_added_and_removed",
+      "file": "tests/test_diff.py",
+      "line": 165,
+      "signature": "def test_compute_diff_project_added_and_removed(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_compute_diff_per_project_systems_edges_and_contracts",
+      "file": "tests/test_diff.py",
+      "line": 193,
+      "signature": "def test_compute_diff_per_project_systems_edges_and_contracts(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_compute_diff_skips_unchanged_per_project_entries",
+      "file": "tests/test_diff.py",
+      "line": 241,
+      "signature": "def test_compute_diff_skips_unchanged_per_project_entries(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_compute_diff_cross_boundary_legacy_to_nested",
+      "file": "tests/test_diff.py",
+      "line": 267,
+      "signature": "def test_compute_diff_cross_boundary_legacy_to_nested(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_compute_diff_scoped_system_name_with_slash",
+      "file": "tests/test_diff.py",
+      "line": 288,
+      "signature": "def test_compute_diff_scoped_system_name_with_slash(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_render_diff_md_no_changes",
+      "file": "tests/test_diff.py",
+      "line": 330,
+      "signature": "def test_render_diff_md_no_changes() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_render_diff_md_non_empty",
+      "file": "tests/test_diff.py",
+      "line": 342,
+      "signature": "def test_render_diff_md_non_empty(tmp_path: Path) -> None"
+    },
     {
       "kind": "fn",
       "name": "test_single_rust_project_at_root",
@@ -96,6 +173,279 @@
     },
     {
       "kind": "fn",
+      "name": "test_build_systems_flat_layout",
+      "file": "tests/test_python_stack.py",
+      "line": 36,
+      "signature": "def test_build_systems_flat_layout(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_build_systems_src_layout",
+      "file": "tests/test_python_stack.py",
+      "line": 46,
+      "signature": "def test_build_systems_src_layout(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_build_systems_subpackage_detected_as_separate_system",
+      "file": "tests/test_python_stack.py",
+      "line": 56,
+      "signature": "def test_build_systems_subpackage_detected_as_separate_system(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_build_systems_skips_pycache_and_venv",
+      "file": "tests/test_python_stack.py",
+      "line": 67,
+      "signature": "def test_build_systems_skips_pycache_and_venv(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_build_systems_tests_dir_is_detected_deliberately",
+      "file": "tests/test_python_stack.py",
+      "line": 84,
+      "signature": "def test_build_systems_tests_dir_is_detected_deliberately(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_intra_project_absolute_import_edge",
+      "file": "tests/test_python_stack.py",
+      "line": 101,
+      "signature": "def test_intra_project_absolute_import_edge(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_relative_imports_resolve_to_internal_edges",
+      "file": "tests/test_python_stack.py",
+      "line": 118,
+      "signature": "def test_relative_imports_resolve_to_internal_edges(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_external_imports_recorded_not_edges",
+      "file": "tests/test_python_stack.py",
+      "line": 142,
+      "signature": "def test_external_imports_recorded_not_edges(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_function_extracted",
+      "file": "tests/test_python_stack.py",
+      "line": 177,
+      "signature": "def test_contract_function_extracted(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_async_function_extracted",
+      "file": "tests/test_python_stack.py",
+      "line": 188,
+      "signature": "def test_contract_async_function_extracted(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_class_with_bases",
+      "file": "tests/test_python_stack.py",
+      "line": 199,
+      "signature": "def test_contract_class_with_bases(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_excludes_private_and_dunder",
+      "file": "tests/test_python_stack.py",
+      "line": 215,
+      "signature": "def test_contract_excludes_private_and_dunder(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_module_level_const",
+      "file": "tests/test_python_stack.py",
+      "line": 234,
+      "signature": "def test_contract_module_level_const(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_signature_includes_annotations_and_defaults",
+      "file": "tests/test_python_stack.py",
+      "line": 251,
+      "signature": "def test_contract_signature_includes_annotations_and_defaults(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_contract_excludes_subpackage_files",
+      "file": "tests/test_python_stack.py",
+      "line": 268,
+      "signature": "def test_contract_excludes_subpackage_files(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_returns_empty_dict_when_file_absent",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 50,
+      "signature": "def test_load_returns_empty_dict_when_file_absent(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_on_malformed_json",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 56,
+      "signature": "def test_load_raises_on_malformed_json(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_when_top_level_is_not_object",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 64,
+      "signature": "def test_load_raises_when_top_level_is_not_object(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_on_missing_required_field",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 72,
+      "signature": "def test_load_raises_on_missing_required_field(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_on_unknown_severity",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 85,
+      "signature": "def test_load_raises_on_unknown_severity(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_when_categories_not_object",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 103,
+      "signature": "def test_load_raises_when_categories_not_object(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_load_raises_when_boundaries_not_array",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 112,
+      "signature": "def test_load_raises_when_boundaries_not_array(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_selector_exact_id_takes_priority_over_category",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 125,
+      "signature": "def test_selector_exact_id_takes_priority_over_category() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_selector_category_alias_resolution",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 146,
+      "signature": "def test_selector_category_alias_resolution() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_selector_detected_category",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 165,
+      "signature": "def test_selector_detected_category() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_selector_tag_match",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 183,
+      "signature": "def test_selector_tag_match() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_selector_id_glob",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 200,
+      "signature": "def test_selector_id_glob() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_evaluate_fires_on_transitive_path",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 226,
+      "signature": "def test_evaluate_fires_on_transitive_path() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_evaluate_does_not_fire_when_transitive_false_and_only_indirect",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 250,
+      "signature": "def test_evaluate_does_not_fire_when_transitive_false_and_only_indirect() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_evaluate_fires_when_transitive_false_and_direct_edge_exists",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 267,
+      "signature": "def test_evaluate_fires_when_transitive_false_and_direct_edge_exists() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_evaluate_suppresses_self_edges",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 285,
+      "signature": "def test_evaluate_suppresses_self_edges() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_evaluate_returns_empty_when_no_rules",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 310,
+      "signature": "def test_evaluate_returns_empty_when_no_rules() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_summarise_rules_pass_and_fail",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 320,
+      "signature": "def test_summarise_rules_pass_and_fail() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_summarise_rules_empty_doc_returns_empty",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 344,
+      "signature": "def test_summarise_rules_empty_doc_returns_empty() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_has_blocking_violations_true_for_error",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 352,
+      "signature": "def test_has_blocking_violations_true_for_error() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_has_blocking_violations_false_for_warnings_and_info",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 356,
+      "signature": "def test_has_blocking_violations_false_for_warnings_and_info() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_has_blocking_violations_false_for_empty",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 363,
+      "signature": "def test_has_blocking_violations_false_for_empty() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_scaffold_json_is_valid_json",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 371,
+      "signature": "def test_scaffold_json_is_valid_json() -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_scaffold_json_round_trips_through_load",
+      "file": "tests/test_repo_boundaries.py",
+      "line": 378,
+      "signature": "def test_scaffold_json_round_trips_through_load(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
       "name": "test_empty_repo_no_crash",
       "file": "tests/test_repo_edges.py",
       "line": 81,
@@ -142,7 +492,119 @@
       "file": "tests/test_repo_edges.py",
       "line": 254,
       "signature": "def test_self_edges_suppressed(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_function_with_signature",
+      "file": "tests/test_ts_layer2.py",
+      "line": 40,
+      "signature": "def test_export_function_with_signature(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_async_function",
+      "file": "tests/test_ts_layer2.py",
+      "line": 54,
+      "signature": "def test_export_async_function(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_class_with_extends_and_implements",
+      "file": "tests/test_ts_layer2.py",
+      "line": 67,
+      "signature": "def test_export_class_with_extends_and_implements(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_interface",
+      "file": "tests/test_ts_layer2.py",
+      "line": 80,
+      "signature": "def test_export_interface(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_type_signature_truncated",
+      "file": "tests/test_ts_layer2.py",
+      "line": 89,
+      "signature": "def test_export_type_signature_truncated(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_simple_type_alias",
+      "file": "tests/test_ts_layer2.py",
+      "line": 104,
+      "signature": "def test_export_simple_type_alias(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_enum",
+      "file": "tests/test_ts_layer2.py",
+      "line": 114,
+      "signature": "def test_export_enum(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_const_let_var",
+      "file": "tests/test_ts_layer2.py",
+      "line": 127,
+      "signature": "def test_export_const_let_var(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_default_function_named",
+      "file": "tests/test_ts_layer2.py",
+      "line": 144,
+      "signature": "def test_export_default_function_named(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_named_re_export_with_alias",
+      "file": "tests/test_ts_layer2.py",
+      "line": 157,
+      "signature": "def test_export_named_re_export_with_alias(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_star_from",
+      "file": "tests/test_ts_layer2.py",
+      "line": 166,
+      "signature": "def test_export_star_from(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_underscore_and_unexported_not_extracted",
+      "file": "tests/test_ts_layer2.py",
+      "line": 179,
+      "signature": "def test_underscore_and_unexported_not_extracted(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_dts_test_spec_files_skipped",
+      "file": "tests/test_ts_layer2.py",
+      "line": 198,
+      "signature": "def test_dts_test_spec_files_skipped(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_skip_dirs_excluded",
+      "file": "tests/test_ts_layer2.py",
+      "line": 215,
+      "signature": "def test_skip_dirs_excluded(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_string_literals_dont_leak_as_exports",
+      "file": "tests/test_ts_layer2.py",
+      "line": 232,
+      "signature": "def test_string_literals_dont_leak_as_exports(tmp_path: Path) -> None"
+    },
+    {
+      "kind": "fn",
+      "name": "test_export_inside_block_comment_skipped",
+      "file": "tests/test_ts_layer2.py",
+      "line": 245,
+      "signature": "def test_export_inside_block_comment_skipped(tmp_path: Path) -> None"
     }
   ],
-  "item_count": 19
+  "item_count": 85
 }

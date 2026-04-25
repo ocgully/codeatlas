@@ -7,7 +7,7 @@
   "source_tool_note": "Public surface = top-level `def` / `async def` / `class` whose names don't start with '_'. Module-level constants (UPPER_CASE assignments) are included as 'const' items. Only files directly inside the package are scanned; sub-packages are their own systems.",
   "files_scanned": 10,
   "counts": {
-    "fn": 18,
+    "fn": 19,
     "const": 13
   },
   "items": [
@@ -76,9 +76,16 @@
     },
     {
       "kind": "fn",
+      "name": "find_symbol",
+      "file": "mercator/stacks/python.py",
+      "line": 479,
+      "signature": "def find_symbol(project_root: Path, systems_doc: dict, name: str, want_kinds) -> List[dict]"
+    },
+    {
+      "kind": "fn",
       "name": "build_contract",
       "file": "mercator/stacks/python.py",
-      "line": 451,
+      "line": 597,
       "signature": "def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict"
     },
     {
@@ -229,5 +236,5 @@
       "signature": "def build_strings(project_root: Path) -> dict"
     }
   ],
-  "item_count": 31
+  "item_count": 32
 }

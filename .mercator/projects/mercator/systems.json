@@ -114,13 +114,19 @@
       "dependencies": [
         {
           "name": "mercator"
+        },
+        {
+          "name": "mercator.stacks"
         }
       ],
       "external_imports": [
         "__future__",
         "json",
+        "os",
         "pathlib",
         "pytest",
+        "shutil",
+        "subprocess",
         "typing"
       ]
     }

@@ -1,13 +1,13 @@
 {
   "schema_version": "1",
   "stack": "python",
-  "generated_at": "2026-04-25T00:08:54Z",
-  "git_head": "7ddef40f0b4f5fb142ad81d6708059a47a3f9a9d",
+  "generated_at": "2026-04-25T00:37:52Z",
+  "git_head": "495296bc5d69b1fe62e651cf77b183ab24c659e4",
   "tools": {},
   "layers": {
     "systems": "implemented",
     "contracts": "implemented (AST public-surface)",
-    "symbols": "stub",
+    "symbols": "implemented (AST def-lookup)",
     "assets": "stub"
   }
 }

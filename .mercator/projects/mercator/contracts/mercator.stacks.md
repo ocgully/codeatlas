@@ -2,13 +2,13 @@
 
 **Source tool**: `python_ast_contract`
 **Files scanned**: 10
-**Public items**: 31
+**Public items**: 32
 
 _Last-refresh timestamp is in `.mercator/meta.json`; this file is time-stable._
 
 ## Counts by kind
 
-- **Functions** — 18
+- **Functions** — 19
 - **Constants** — 13
 
 ## Functions
@@ -21,7 +21,8 @@ _Last-refresh timestamp is in `.mercator/meta.json`; this file is time-stable._
 | `build_assets` | `def build_assets(project_root: Path) -> dict` | `mercator/stacks/dart_assets.py`:166 |
 | `build_strings` | `def build_strings(project_root: Path) -> dict` | `mercator/stacks/dart_assets.py`:270 |
 | `build_systems` | `def build_systems(project_root: Path) -> dict` | `mercator/stacks/python.py`:355 |
-| `build_contract` | `def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict` | `mercator/stacks/python.py`:451 |
+| `find_symbol` | `def find_symbol(project_root: Path, systems_doc: dict, name: str, want_kinds) -> List[dict]` | `mercator/stacks/python.py`:479 |
+| `build_contract` | `def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict` | `mercator/stacks/python.py`:597 |
 | `build_systems` | `def build_systems(project_root: Path) -> dict` | `mercator/stacks/rust.py`:23 |
 | `strip_rust_source` | `def strip_rust_source(text: str) -> str` | `mercator/stacks/rust.py`:94 |
 | `build_contract` | `def build_contract(project_root: Path, system_name: str, manifest_rel: str) -> dict` | `mercator/stacks/rust.py`:310 |

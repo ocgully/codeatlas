@@ -62,10 +62,10 @@ _Last-refresh timestamp is in `.mercator/meta.json`; this file is time-stable._
 | `deps` | `def deps(repo_root: Path, target: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:165 |
 | `contract` | `def contract(repo_root: Path, system_name: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:185 |
 | `symbol` | `def symbol(repo_root: Path, name: str, kinds: Union[str, Set[str]] = 'any', project_id: Optional[str] = None) -> dict` | `mercator/query.py`:196 |
-| `touches` | `def touches(repo_root: Path, file_path: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:225 |
-| `system` | `def system(repo_root: Path, name: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:321 |
-| `boundaries` | `def boundaries(repo_root: Path, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:342 |
-| `violations` | `def violations(repo_root: Path, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:366 |
+| `touches` | `def touches(repo_root: Path, file_path: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:241 |
+| `system` | `def system(repo_root: Path, name: str, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:337 |
+| `boundaries` | `def boundaries(repo_root: Path, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:358 |
+| `violations` | `def violations(repo_root: Path, project_id: Optional[str] = None) -> dict` | `mercator/query.py`:382 |
 | `refresh_one_project` | `def refresh_one_project(repo_root: Path, repo_storage: Path, project: dict, *, affected: Optional[Set[str]] = None) -> dict` | `mercator/refresh.py`:200 |
 | `refresh` | `def refresh(repo_root: Path, *, project_id: Optional[str] = None, affected: Optional[Set[str]] = None) -> dict` | `mercator/refresh.py`:324 |
 | `files_to_affected_systems` | `def files_to_affected_systems(repo_root: Path, changed_files: Iterable[str]) -> dict` | `mercator/refresh.py`:396 |

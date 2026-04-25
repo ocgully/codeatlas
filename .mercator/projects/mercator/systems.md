@@ -13,7 +13,7 @@ _Last-refresh timestamp is in `.mercator/meta.json`; this file is time-stable._
 | `mercator.render` | None | p,a,c,k,a,g,e | mercator, mercator.render.atlas |
 | `mercator.render.atlas` | None | p,a,c,k,a,g,e |  |
 | `mercator.stacks` | None | p,a,c,k,a,g,e | mercator |
-| `tests` | None | p,a,c,k,a,g,e | mercator |
+| `tests` | None | p,a,c,k,a,g,e | mercator, mercator.stacks |
 
 ## How agents use this data
 

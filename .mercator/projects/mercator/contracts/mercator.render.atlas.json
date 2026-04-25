@@ -28,7 +28,7 @@
       "kind": "fn",
       "name": "render",
       "file": "mercator/render/atlas/__init__.py",
-      "line": 177,
+      "line": 247,
       "signature": "def render(*, systems_doc = None, contracts = None, boundaries_doc = None, violations = None, assets_doc = None, strings_doc = None, meta_doc = None, mercator_version: str, schema_version: str) -> str"
     }
   ],

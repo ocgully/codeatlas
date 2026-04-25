@@ -505,28 +505,28 @@
       "kind": "fn",
       "name": "touches",
       "file": "mercator/query.py",
-      "line": 225,
+      "line": 241,
       "signature": "def touches(repo_root: Path, file_path: str, project_id: Optional[str] = None) -> dict"
     },
     {
       "kind": "fn",
       "name": "system",
       "file": "mercator/query.py",
-      "line": 321,
+      "line": 337,
       "signature": "def system(repo_root: Path, name: str, project_id: Optional[str] = None) -> dict"
     },
     {
       "kind": "fn",
       "name": "boundaries",
       "file": "mercator/query.py",
-      "line": 342,
+      "line": 358,
       "signature": "def boundaries(repo_root: Path, project_id: Optional[str] = None) -> dict"
     },
     {
       "kind": "fn",
       "name": "violations",
       "file": "mercator/query.py",
-      "line": 366,
+      "line": 382,
       "signature": "def violations(repo_root: Path, project_id: Optional[str] = None) -> dict"
     },
     {
