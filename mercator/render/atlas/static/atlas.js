@@ -64,6 +64,17 @@
   }
   function mermaidSafe(n) { return String(n).replace(/[^A-Za-z0-9_]/g, '_'); }
 
+  // Mermaid label escape — quoted-string form is the most permissive.
+  // Handles brackets/parens/colons/quotes/HTML chars that break unquoted
+  // labels. Names like "@scope/foo" or anything with `:` round-trip safely.
+  function mermaidLabel(s) {
+    return '"' + String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '#quot;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;') + '"';
+  }
+
   function globMatch(pattern, name) {
     if (pattern === name) return true;
     const re = new RegExp('^' + pattern
@@ -91,16 +102,16 @@
     }
     const out = ['graph LR'];
     for (const [ln, ms] of Object.entries(byLayer).sort()) {
-      out.push(`  subgraph ${mermaidSafe(ln)}[${ln}]`);
-      for (const n of ms) out.push(`    ${mermaidSafe(n)}[${n}]`);
+      out.push(`  subgraph ${mermaidSafe(ln)}[${mermaidLabel(ln)}]`);
+      for (const n of ms) out.push(`    ${mermaidSafe(n)}[${mermaidLabel(n)}]`);
       out.push('  end');
     }
-    for (const n of unassigned) out.push(`  ${mermaidSafe(n)}[${n}]`);
+    for (const n of unassigned) out.push(`  ${mermaidSafe(n)}[${mermaidLabel(n)}]`);
     for (const [a, b] of edges) {
       const arrow = (highlight && highlight.has(a + '\0' + b)) ? '==>' : '-->';
       out.push(`  ${mermaidSafe(a)} ${arrow} ${mermaidSafe(b)}`);
     }
-    if (highlight && highlight.size > 0)
+    if (highlight && highlight.size > 0 && edges.length > 0)
       out.push('  linkStyle default stroke:#777');
     return out.join('\n');
   }
@@ -145,11 +156,11 @@
       if (!placed) unassigned.push(n);
     }
     for (const [ln, ms] of Object.entries(byLayer).sort()) {
-      out.push(`  subgraph ${mermaidSafe(ln)}[${ln}]`);
-      for (const n of ms) out.push(`    ${mermaidSafe(n)}[${n}]`);
+      out.push(`  subgraph ${mermaidSafe(ln)}[${mermaidLabel(ln)}]`);
+      for (const n of ms) out.push(`    ${mermaidSafe(n)}[${mermaidLabel(n)}]`);
       out.push('  end');
     }
-    for (const n of unassigned) out.push(`  ${mermaidSafe(n)}[${n}]`);
+    for (const n of unassigned) out.push(`  ${mermaidSafe(n)}[${mermaidLabel(n)}]`);
     const curEdges = allEdges();
     for (const [a, b] of curEdges) {
       if (violEdges.has(a + '\0' + b)) continue;

@@ -44,20 +44,34 @@
 
   // ---------- Cross-project mermaid graph ----------------------------------
   const mermaidSafe = (n) => String(n).replace(/[^A-Za-z0-9_]/g, '_');
+  // Mermaid quoted-label escape — handles brackets/parens/colons/quotes
+  // safely. Used for every label that comes from project / system data.
+  const mermaidLabel = (s) => '"' + String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '#quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;') + '"';
+  // Edge labels (between `|` ... `|`) are stricter; strip pipes and
+  // collapse anything risky to a clean alphanumeric form.
+  const mermaidEdgeLabel = (s) => String(s)
+    .replace(/[|"`<>{}\\]/g, '_')
+    .replace(/\s+/g, ' ')
+    .slice(0, 40);
+
   function buildCrossProjectGraph() {
     const lines = ['graph LR'];
     // Group nodes by category for visual clarity.
     const byCat = {};
     for (const s of SUMM) (byCat[s.category] = byCat[s.category] || []).push(s);
     for (const [cat, items] of Object.entries(byCat).sort()) {
-      lines.push(`  subgraph ${mermaidSafe(cat)}[${cat}]`);
+      lines.push(`  subgraph ${mermaidSafe(cat)}[${mermaidLabel(cat)}]`);
       for (const s of items.sort((a, b) => (a.name || a.id).localeCompare(b.name || b.id))) {
         const label = `${s.name || s.id}\\n[${s.stack}]`;
-        lines.push(`    ${mermaidSafe(s.id)}["${label}"]`);
+        lines.push(`    ${mermaidSafe(s.id)}[${mermaidLabel(label)}]`);
       }
       lines.push('  end');
     }
-    for (const e of EDGES) lines.push(`  ${mermaidSafe(e.from)} -->|${e.via}| ${mermaidSafe(e.to)}`);
+    for (const e of EDGES) lines.push(`  ${mermaidSafe(e.from)} -->|${mermaidEdgeLabel(e.via)}| ${mermaidSafe(e.to)}`);
     return lines.join('\n');
   }
   async function renderMermaidInto(container, src) {
