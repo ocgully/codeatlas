@@ -208,9 +208,10 @@ def test_id_disambiguation_on_slug_collision(tmp_path: Path) -> None:
     assert ids == ["a-b", "a-b-2"]
 
 
-def test_nested_project_not_detected_inside_outer(tmp_path: Path) -> None:
-    # Outer rust project with an inner rust crate. Only the outer should be
-    # detected because the walker stops descending once it hits a manifest.
+def test_nested_projects_both_detected(tmp_path: Path) -> None:
+    # An outer Cargo crate with a nested Cargo crate inside it. Both should
+    # surface as projects — the walker descends through detected manifests
+    # so monorepos with `crates/*` (Bevy, Tokio) get one project per crate.
     _write(tmp_path / "apps" / "web" / "Cargo.toml", _cargo("web"))
     _write(tmp_path / "apps" / "web" / "internal" / "Cargo.toml",
            _cargo("internal"))
@@ -218,7 +219,41 @@ def test_nested_project_not_detected_inside_outer(tmp_path: Path) -> None:
     doc = detect_projects(tmp_path)
 
     ids = {p["id"] for p in doc["projects"]}
-    assert ids == {"apps-web"}
+    assert ids == {"apps-web", "apps-web-internal"}
+
+
+def test_workspace_only_cargo_root_skipped(tmp_path: Path) -> None:
+    # A virtual workspace root (Cargo.toml with `[workspace]` and no
+    # `[package]`) is metadata, not a project. The walker should descend
+    # into the workspace members but not surface the root itself.
+    workspace_root = tmp_path / "Cargo.toml"
+    _write(workspace_root, '[workspace]\nmembers = ["crates/a", "crates/b"]\n')
+    _write(tmp_path / "crates" / "a" / "Cargo.toml", _cargo("a"))
+    _write(tmp_path / "crates" / "b" / "Cargo.toml", _cargo("b"))
+
+    doc = detect_projects(tmp_path)
+
+    ids = {p["id"] for p in doc["projects"]}
+    # Root with `[workspace]`-only is excluded; member crates surface.
+    assert ids == {"crates-a", "crates-b"}
+
+
+def test_workspace_root_with_package_kept(tmp_path: Path) -> None:
+    # A Cargo.toml that declares BOTH `[workspace]` and `[package]` is a
+    # real package (think Bevy's root crate), and should appear alongside
+    # the workspace members.
+    root_cargo = tmp_path / "Cargo.toml"
+    _write(root_cargo,
+           '[package]\nname = "rootpkg"\nversion = "0.1.0"\n'
+           '[workspace]\nmembers = ["crates/a"]\n')
+    _write(tmp_path / "crates" / "a" / "Cargo.toml", _cargo("a"))
+
+    doc = detect_projects(tmp_path)
+
+    ids = {p["id"] for p in doc["projects"]}
+    assert "crates-a" in ids
+    # Root project ID is derived from the manifest name when root path is `.`
+    assert any(p["root"] == "." for p in doc["projects"])
 
 
 def test_manifest_precedence_rust_wins_over_ts(tmp_path: Path) -> None:

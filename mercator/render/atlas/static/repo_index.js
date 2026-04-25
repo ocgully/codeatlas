@@ -232,6 +232,50 @@
         : '<div id="proj-graph"></div>'}
     </section>
     ${(() => {
+      const COV = DATA.coverage;
+      if (!COV || !COV.by_extension) return '';
+      const total = (COV.in_projects_total || 0) + (COV.unmapped_total || 0);
+      if (total === 0) return '';
+      const pctMapped = Math.round(100 * (COV.in_projects_total || 0) / total);
+      const exts = Object.entries(COV.by_extension)
+        .map(([ext, e]) => ({ ext, ...e }))
+        .sort((a, b) => b.total - a.total)
+        .slice(0, 12);
+      const unsupported = COV.unsupported_languages || [];
+      const topDirs = COV.unmapped_top_dirs || [];
+      return `<section class="panel">
+        <h2>Source coverage</h2>
+        <div style="margin-bottom:8px">
+          <strong>${pctMapped}%</strong> of source files (${COV.in_projects_total} of ${total})
+          live inside a known Mercator project.
+          ${unsupported.length
+            ? ` The remaining ${COV.unmapped_total} files are in languages Mercator
+                doesn't yet map: <strong>${unsupported.map(esc).join(', ')}</strong>.`
+            : ' All detected source is covered.'}
+        </div>
+        <table>
+          <thead><tr><th>Ext</th><th>Language</th><th>Total</th><th>In projects</th><th>Unmapped</th><th>Supported?</th></tr></thead>
+          <tbody>
+            ${exts.map(e => `<tr>
+              <td class="mono">${esc(e.ext)}</td>
+              <td>${esc(e.language)}</td>
+              <td>${e.total}</td>
+              <td>${e.in_projects}</td>
+              <td>${e.unmapped}</td>
+              <td>${e.supported
+                ? '<span class="pill ok">yes</span>'
+                : '<span class="pill warn">no</span>'}</td>
+            </tr>`).join('')}
+          </tbody>
+        </table>
+        ${topDirs.length ? `
+          <div style="color:var(--muted);font-size:12px;margin-top:8px">
+            Unmapped files concentrated in:
+            ${topDirs.map(d => `<span class="pill">${esc(d.path)} (${d.count})</span>`).join(' ')}
+          </div>` : ''}
+      </section>`;
+    })()}
+    ${(() => {
       const RB = DATA.repo_boundaries;
       if (!RB) {
         return `<section class="panel">

@@ -98,6 +98,17 @@ def repo_edges(repo_root: Path) -> dict:
     return doc
 
 
+def coverage(repo_root: Path) -> dict:
+    """Return the source-file coverage report (computed on-demand if missing)."""
+    from mercator import coverage as coverage_mod
+    repo_storage = paths.mercator_dir(repo_root)
+    doc = coverage_mod.load_coverage(repo_storage)
+    if doc is None:
+        projects_doc = projects_mod.load_projects(repo_storage) or projects_mod.detect_projects(repo_root)
+        doc = coverage_mod.compute_coverage(repo_root, projects_doc)
+    return doc
+
+
 def repo_boundaries(repo_root: Path) -> dict:
     """Return repo-level (cross-project) DMZ rules + per-rule pass/fail."""
     from mercator import repo_boundaries as repo_bnd_mod

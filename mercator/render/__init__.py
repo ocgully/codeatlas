@@ -10,6 +10,7 @@ from mercator import paths as _paths
 from mercator import boundaries as _boundaries_mod
 from mercator import projects as _projects_mod
 from mercator import repo_edges as _repo_edges_mod
+from mercator import coverage as _coverage_mod
 from mercator.render import atlas as _atlas_html
 
 
@@ -116,6 +117,12 @@ def write_atlas(repo_root: Path) -> Path:
         (per_project_dir / f"{proj['id']}.html").write_text(html, encoding="utf-8")
 
     repo_edges_doc = _repo_edges_mod.load_edges(repo_storage) or _repo_edges_mod.compute_edges(repo_root)
+    coverage_doc = _coverage_mod.load_coverage(repo_storage)
+    if coverage_doc is None:
+        try:
+            coverage_doc = _coverage_mod.compute_coverage(repo_root, projects_doc)
+        except Exception:  # noqa: BLE001
+            coverage_doc = None
     from mercator import repo_boundaries as _repo_bnd_mod
     try:
         repo_bnd_doc = _repo_bnd_mod.load(repo_storage)
@@ -134,6 +141,7 @@ def write_atlas(repo_root: Path) -> Path:
         repo_meta=repo_meta,
         projects_doc=projects_doc,
         repo_edges=repo_edges_doc,
+        coverage=coverage_doc,
         repo_boundaries={"rules": repo_bnd_rules, "violations": repo_bnd_violations}
                        if repo_bnd_doc else None,
     )

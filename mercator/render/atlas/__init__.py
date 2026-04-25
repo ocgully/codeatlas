@@ -125,6 +125,7 @@ def render_repo_index(
     projects_doc: Optional[dict] = None,
     repo_edges: Optional[dict] = None,
     repo_boundaries: Optional[dict] = None,
+    coverage: Optional[dict] = None,
 ) -> str:
     """Render the multi-project index page.
 
@@ -229,6 +230,7 @@ def render_repo_index(
         "summaries": summaries,
         "repo_edges": repo_edges or {"edges": []},
         "repo_boundaries": repo_boundaries or None,
+        "coverage": coverage or None,
     }
     template = _read(_TEMPLATES / "repo_index.html")
     css = _read(_STATIC / "atlas.css")

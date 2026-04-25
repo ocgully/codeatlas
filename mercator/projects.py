@@ -73,6 +73,8 @@ SKIP_DIRS: Set[str] = {
     "examples", "fixtures", "samples",
     # IDE
     ".idea", ".vscode",
+    # Repo metadata (GitHub Actions, issue templates) — rarely real projects
+    ".github",
     # Mercator's own
     ".mercator", ".codemap",
     # Temporary
@@ -160,6 +162,25 @@ def _detect_manifest(d: Path) -> Optional[Tuple[str, str]]:
     return None
 
 
+def _is_workspace_only_cargo(d: Path) -> bool:
+    """True iff `d/Cargo.toml` declares `[workspace]` but no `[package]`.
+
+    A virtual workspace root is not itself a package — it's a parent that
+    groups members. We descend into it to find the real per-crate
+    Cargo.toml files, but don't surface the root as a project.
+    """
+    cargo = d / "Cargo.toml"
+    if not cargo.is_file():
+        return False
+    try:
+        text = cargo.read_text(encoding="utf-8")
+    except (OSError, UnicodeDecodeError):
+        return False
+    has_package = bool(re.search(r"^\s*\[package\]", text, re.MULTILINE))
+    has_workspace = bool(re.search(r"^\s*\[workspace\]", text, re.MULTILINE))
+    return has_workspace and not has_package
+
+
 def _walk_for_manifests(
     repo_root: Path,
     extra_skip: Set[str],
@@ -214,19 +235,25 @@ def _walk_for_manifests(
         # Detect a manifest at this level.
         detected = _detect_manifest(d)
         if detected is not None:
-            keep = True
-            if include_globs:
-                keep = _match_any(rel_path, include_globs) or rel_path == "."
-            if keep:
-                found.append((d, detected))
-                # Don't descend into a detected project's tree — its sub-dirs
-                # belong to that project's internal system breakdown, not to
-                # new sibling projects. This is the key heuristic that keeps
-                # detection clean: a Cargo workspace with 30 crates produces
-                # ONE project, not 30.
-                continue
+            stack_kind, _ = detected
+            # Workspace-only Cargo roots (`[workspace]` with no `[package]`)
+            # are organisational, not packages — descend looking for real
+            # member crates, but don't surface the root as a project.
+            is_real_project = not (
+                stack_kind == "rust" and _is_workspace_only_cargo(d)
+            )
+            if is_real_project:
+                keep = True
+                if include_globs:
+                    keep = _match_any(rel_path, include_globs) or rel_path == "."
+                if keep:
+                    found.append((d, detected))
 
-        # Otherwise, descend into children.
+        # Always descend (subject to skip-dirs / exclude-globs at the child
+        # level). Cargo workspaces, npm workspaces, and pyproject monorepos
+        # all have nested manifests that deserve to be their own projects:
+        # `crates/<crate>/Cargo.toml` is a project, not a system inside the
+        # workspace root.
         try:
             children = sorted([c for c in d.iterdir() if c.is_dir()])
         except OSError:

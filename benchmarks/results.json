@@ -1,43 +1,123 @@
 {
   "version": "mercator 0.5.0 (schema 1)",
-  "git_sha": "495296bc5d69b1fe62e651cf77b183ab24c659e4",
-  "timestamp_utc": "2026-04-25T00:36:41+00:00",
+  "git_sha": "8a42f765cf461f6f47eec768d2a83444f62e5388",
+  "timestamp_utc": "2026-04-25T01:04:14+00:00",
   "machine": "=== Machine ===\nOS:         Microsoft Windows 11 Home (10.0.26200)\nSystem:     Micro-Star International MS-7B86\nCPU:        AMD Ryzen 7 2700X (8 cores / 16 threads, Zen+ 12nm, 2018)\nRAM:        32 GB\n\n=== Storage (5 disks) ===\nPrimary work / repo disk: Samsung SSD 980 PRO with Heatsink 2TB (NVMe PCIe 4.0)\nSecondary SSD:            Samsung SSD 850 EVO 500GB (SATA)\nHDDs:                     SAMSUNG HD502HJ x2 (466 GB SATA), WDC WD30EZRZ 2.8TB (SATA)\n\n=== Tooling ===\nPython:     3.12.10\ngit:        2.37.3 (Git for Windows)\n",
   "results": [
     {
       "name": "ripgrep",
       "url": "https://github.com/BurntSushi/ripgrep",
       "category": "Small Rust",
-      "clone_seconds": 1.753201200044714,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\ripgrep",
       "mercator": {
-        "init_seconds": 2.9639016001019627,
+        "init_seconds": 4.887084999936633,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 1.6415082999737933,
+        "refresh_seconds": 5.190040600020438,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
           "rust"
         ],
-        "project_count": 1,
+        "project_count": 11,
         "projects": [
+          {
+            "id": "crates-cli",
+            "name": "grep-cli",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-globset",
+            "name": "globset",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-grep",
+            "name": "grep",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-ignore",
+            "name": "ignore",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-matcher",
+            "name": "grep-matcher",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-pcre2",
+            "name": "grep-pcre2",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-printer",
+            "name": "grep-printer",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-regex",
+            "name": "grep-regex",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-searcher",
+            "name": "grep-searcher",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
           {
             "id": "ripgrep",
             "name": "ripgrep",
             "stack": "rust",
             "category": "tool",
-            "systems": 10,
-            "contracts": 10
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "fuzz",
+            "name": "fuzz",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
           }
         ],
-        "edge_count": 0,
-        "atlas_html_bytes": 71297,
-        "storage_bytes": 137072,
+        "edge_count": 18,
+        "atlas_html_bytes": 57499,
+        "storage_bytes": 800135,
         "atlas_html_exists": true,
-        "extra_atlas_bytes": 0,
+        "extra_atlas_bytes": 636947,
         "notes": []
       },
       "storage_dir": "C:\\tmp\\bench-atlases\\ripgrep"
@@ -46,36 +126,692 @@
       "name": "bevy",
       "url": "https://github.com/bevyengine/bevy",
       "category": "Large Rust game engine",
-      "clone_seconds": 5.367984100012109,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\bevy",
       "mercator": {
-        "init_seconds": 31.725452600046992,
+        "init_seconds": 53.36203820002265,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 10.552020699949935,
+        "refresh_seconds": 64.38904180005193,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
           "rust"
         ],
-        "project_count": 1,
+        "project_count": 83,
         "projects": [
           {
             "id": "bevy",
             "name": "bevy",
             "stack": "rust",
             "category": "lib",
-            "systems": 88,
-            "contracts": 88
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "benches",
+            "name": "benches",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_a11y",
+            "name": "bevy_a11y",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_android",
+            "name": "bevy_android",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_animation",
+            "name": "bevy_animation",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_animation-macros",
+            "name": "bevy_animation_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_anti_alias",
+            "name": "bevy_anti_alias",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_app",
+            "name": "bevy_app",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_asset",
+            "name": "bevy_asset",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_asset-macros",
+            "name": "bevy_asset_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_audio",
+            "name": "bevy_audio",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_camera",
+            "name": "bevy_camera",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_camera_controller",
+            "name": "bevy_camera_controller",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_clipboard",
+            "name": "bevy_clipboard",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_color",
+            "name": "bevy_color",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_color-crates-gen_tests",
+            "name": "gen_tests",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_core_pipeline",
+            "name": "bevy_core_pipeline",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_derive",
+            "name": "bevy_derive",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_derive-compile_fail",
+            "name": "bevy_derive_compile_fail",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_dev_tools",
+            "name": "bevy_dev_tools",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_diagnostic",
+            "name": "bevy_diagnostic",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_dylib",
+            "name": "bevy_dylib",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ecs",
+            "name": "bevy_ecs",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ecs-compile_fail",
+            "name": "bevy_ecs_compile_fail",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ecs-macros",
+            "name": "bevy_ecs_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_encase_derive",
+            "name": "bevy_encase_derive",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_feathers",
+            "name": "bevy_feathers",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_gilrs",
+            "name": "bevy_gilrs",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_gizmos",
+            "name": "bevy_gizmos",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_gizmos-macros",
+            "name": "bevy_gizmos_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_gizmos_render",
+            "name": "bevy_gizmos_render",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_gltf",
+            "name": "bevy_gltf",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_image",
+            "name": "bevy_image",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_input",
+            "name": "bevy_input",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_input_focus",
+            "name": "bevy_input_focus",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_internal",
+            "name": "bevy_internal",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_light",
+            "name": "bevy_light",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_log",
+            "name": "bevy_log",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_macro_utils",
+            "name": "bevy_macro_utils",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_material",
+            "name": "bevy_material",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_material-macros",
+            "name": "bevy_material_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_math",
+            "name": "bevy_math",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_mesh",
+            "name": "bevy_mesh",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_pbr",
+            "name": "bevy_pbr",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_picking",
+            "name": "bevy_picking",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_platform",
+            "name": "bevy_platform",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_post_process",
+            "name": "bevy_post_process",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ptr",
+            "name": "bevy_ptr",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_reflect",
+            "name": "bevy_reflect",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_reflect-compile_fail",
+            "name": "bevy_reflect_compile_fail",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_reflect-derive",
+            "name": "bevy_reflect_derive",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_remote",
+            "name": "bevy_remote",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_render",
+            "name": "bevy_render",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_render-macros",
+            "name": "bevy_render_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_scene",
+            "name": "bevy_scene",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_scene-macros",
+            "name": "bevy_scene_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_settings",
+            "name": "bevy_settings",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_shader",
+            "name": "bevy_shader",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_solari",
+            "name": "bevy_solari",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_sprite",
+            "name": "bevy_sprite",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_sprite_render",
+            "name": "bevy_sprite_render",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_state",
+            "name": "bevy_state",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_state-macros",
+            "name": "bevy_state_macros",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_tasks",
+            "name": "bevy_tasks",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_text",
+            "name": "bevy_text",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_time",
+            "name": "bevy_time",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_transform",
+            "name": "bevy_transform",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ui",
+            "name": "bevy_ui",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ui_render",
+            "name": "bevy_ui_render",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_ui_widgets",
+            "name": "bevy_ui_widgets",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_utils",
+            "name": "bevy_utils",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_window",
+            "name": "bevy_window",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_winit",
+            "name": "bevy_winit",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "crates-bevy_world_serialization",
+            "name": "bevy_world_serialization",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "errors",
+            "name": "errors",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tests-integration-simple-ecs-test",
+            "name": "simple-ecs-test",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-build-easefunction-graphs",
+            "name": "build-easefunction-graphs",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-build-templated-pages",
+            "name": "build-templated-pages",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-build-wasm-example",
+            "name": "build-wasm-example",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-ci",
+            "name": "ci",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-compile_fail_utils",
+            "name": "compile_fail_utils",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-example-showcase",
+            "name": "example-showcase",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "tools-export-content",
+            "name": "export-content",
+            "stack": "rust",
+            "category": "tool",
+            "systems": 1,
+            "contracts": 1
           }
         ],
-        "edge_count": 0,
-        "atlas_html_bytes": 1048478,
-        "storage_bytes": 3232543,
+        "edge_count": 652,
+        "atlas_html_bytes": 1116779,
+        "storage_bytes": 10525590,
         "atlas_html_exists": true,
-        "extra_atlas_bytes": 0,
+        "extra_atlas_bytes": 6857781,
         "notes": []
       },
       "storage_dir": "C:\\tmp\\bench-atlases\\bevy"
@@ -84,22 +820,31 @@
       "name": "godot",
       "url": "https://github.com/godotengine/godot",
       "category": "C++ game engine (expected fail)",
-      "clone_seconds": 19.023263900075108,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\godot",
       "mercator": {
-        "init_seconds": 0.3395590999862179,
+        "init_seconds": 3.448001899989322,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 0.492527199909091,
+        "refresh_seconds": 4.308962199953385,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
-          "python"
+          "python",
+          "ts"
         ],
-        "project_count": 1,
+        "project_count": 2,
         "projects": [
+          {
+            "id": "platform-web",
+            "name": "godot",
+            "stack": "ts",
+            "category": "app",
+            "systems": 1,
+            "contracts": 1
+          },
           {
             "id": "godot",
             "name": "godot",
@@ -110,10 +855,10 @@
           }
         ],
         "edge_count": 0,
-        "atlas_html_bytes": 48239,
-        "storage_bytes": 52972,
+        "atlas_html_bytes": 32766,
+        "storage_bytes": 158551,
         "atlas_html_exists": true,
-        "extra_atlas_bytes": 0,
+        "extra_atlas_bytes": 109760,
         "notes": []
       },
       "storage_dir": "C:\\tmp\\bench-atlases\\godot"
@@ -122,35 +867,24 @@
       "name": "vite",
       "url": "https://github.com/vitejs/vite",
       "category": "TypeScript monorepo",
-      "clone_seconds": 3.483139699907042,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\vite",
       "mercator": {
-        "init_seconds": 9.432644800050184,
-        "init_rc": 0,
-        "init_stderr": null,
-        "refresh_seconds": 1.9013039999408647,
-        "refresh_rc": 0,
+        "init_seconds": 2.8655868000350893,
+        "init_rc": 3,
+        "init_stderr": "mercator: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)",
+        "refresh_seconds": null,
+        "refresh_rc": null,
         "refresh_stderr": null,
-        "stacks": [
-          "ts"
-        ],
-        "project_count": 1,
-        "projects": [
-          {
-            "id": "vitejs-vite-monorepo",
-            "name": "@vitejs/vite-monorepo",
-            "stack": "ts",
-            "category": "app",
-            "systems": 1,
-            "contracts": 1
-          }
-        ],
-        "edge_count": 0,
-        "atlas_html_bytes": 259308,
-        "storage_bytes": 696717,
-        "atlas_html_exists": true,
+        "stacks": [],
+        "project_count": 0,
+        "projects": [],
+        "edge_count": null,
+        "atlas_html_bytes": 0,
+        "storage_bytes": 0,
+        "atlas_html_exists": false,
         "extra_atlas_bytes": 0,
         "notes": []
       },
@@ -160,15 +894,15 @@
       "name": "aider",
       "url": "https://github.com/Aider-AI/aider",
       "category": "Python AI/LLM",
-      "clone_seconds": 4.1799998000497,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\aider",
       "mercator": {
-        "init_seconds": 3.2092277000192553,
+        "init_seconds": 3.0958466000156477,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 1.4933377000270411,
+        "refresh_seconds": 1.3842024999903515,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
@@ -186,8 +920,8 @@
           }
         ],
         "edge_count": 0,
-        "atlas_html_bytes": 142634,
-        "storage_bytes": 343981,
+        "atlas_html_bytes": 148467,
+        "storage_bytes": 354780,
         "atlas_html_exists": true,
         "extra_atlas_bytes": 0,
         "notes": []
@@ -198,21 +932,22 @@
       "name": "opencode",
       "url": "https://github.com/sst/opencode",
       "category": "TypeScript AI/LLM",
-      "clone_seconds": 6.578504100092687,
-      "skipped_clone": false,
+      "clone_seconds": 0.0,
+      "skipped_clone": true,
       "clone_error": null,
       "clone_path": "C:\\tmp\\bench-clones\\opencode",
       "mercator": {
-        "init_seconds": 25.573193400050513,
+        "init_seconds": 80.62209389999043,
         "init_rc": 0,
         "init_stderr": null,
-        "refresh_seconds": 7.17755759996362,
+        "refresh_seconds": 26.849305300042033,
         "refresh_rc": 0,
         "refresh_stderr": null,
         "stacks": [
+          "rust",
           "ts"
         ],
-        "project_count": 1,
+        "project_count": 23,
         "projects": [
           {
             "id": "opencode",
@@ -221,13 +956,189 @@
             "category": "app",
             "systems": 20,
             "contracts": 20
+          },
+          {
+            "id": "github",
+            "name": "github",
+            "stack": "ts",
+            "category": "app",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-app",
+            "name": "@opencode-ai/app",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-console-app",
+            "name": "@opencode-ai/console-app",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-console-core",
+            "name": "@opencode-ai/console-core",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-console-function",
+            "name": "@opencode-ai/console-function",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-console-mail",
+            "name": "@opencode-ai/console-mail",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-console-resource",
+            "name": "@opencode-ai/console-resource",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-desktop",
+            "name": "@opencode-ai/desktop",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-desktop-electron",
+            "name": "@opencode-ai/desktop-electron",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-desktop-src-tauri",
+            "name": "opencode-desktop",
+            "stack": "rust",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-enterprise",
+            "name": "@opencode-ai/enterprise",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-function",
+            "name": "@opencode-ai/function",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-opencode",
+            "name": "opencode",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-plugin",
+            "name": "@opencode-ai/plugin",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-script",
+            "name": "@opencode-ai/script",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-sdk-js",
+            "name": "@opencode-ai/sdk",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-shared",
+            "name": "@opencode-ai/shared",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-slack",
+            "name": "@opencode-ai/slack",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-storybook",
+            "name": "@opencode-ai/storybook",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-ui",
+            "name": "@opencode-ai/ui",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "packages-web",
+            "name": "@opencode-ai/web",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
+          },
+          {
+            "id": "sdks-vscode",
+            "name": "opencode",
+            "stack": "ts",
+            "category": "lib",
+            "systems": 1,
+            "contracts": 1
           }
         ],
-        "edge_count": 0,
-        "atlas_html_bytes": 890435,
-        "storage_bytes": 2632007,
+        "edge_count": 28,
+        "atlas_html_bytes": 672092,
+        "storage_bytes": 7287720,
         "atlas_html_exists": true,
-        "extra_atlas_bytes": 0,
+        "extra_atlas_bytes": 3036456,
         "notes": []
       },
       "storage_dir": "C:\\tmp\\bench-atlases\\opencode"

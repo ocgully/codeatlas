@@ -134,6 +134,8 @@ def cmd_query(args) -> int:
             data = query_mod.projects(root)
         elif args.subject == "repo-edges":
             data = query_mod.repo_edges(root)
+        elif args.subject == "coverage":
+            data = query_mod.coverage(root)
         elif args.subject == "repo-boundaries":
             data = query_mod.repo_boundaries(root)
         elif args.subject == "repo-violations":
@@ -634,7 +636,7 @@ def _build_parser(prog: str = "mercator") -> argparse.ArgumentParser:
 
     sp = sub.add_parser("query", help="Query a slice. JSON by default.")
     sp.add_argument("subject",
-                    choices=["projects", "repo-edges", "repo-boundaries", "repo-violations",
+                    choices=["projects", "repo-edges", "repo-boundaries", "repo-violations", "coverage",
                              "systems", "deps", "contract", "symbol", "touches", "system",
                              "boundaries", "violations", "assets", "strings"])
     sp.add_argument("name", nargs="?", help="Name/path argument for the query")

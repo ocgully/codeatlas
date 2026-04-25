@@ -35,6 +35,7 @@ from mercator import meta, paths
 from mercator import boundaries as boundaries_mod
 from mercator import projects as projects_mod
 from mercator import repo_edges as repo_edges_mod
+from mercator import coverage as coverage_mod
 from mercator.detect import detect
 from mercator.render import systems_md, contract_md, graph_md, boundaries_md, write_atlas
 from mercator.stacks import rust, unity, dart, ts, python
@@ -361,6 +362,12 @@ def refresh(
     # always so the file exists with edge_count=0 for single-project repos).
     try:
         repo_edges_mod.write_edges(repo_root)
+    except Exception:  # noqa: BLE001
+        pass
+
+    # 4b. Source coverage report — informational, surfaces unmapped code.
+    try:
+        coverage_mod.write_coverage(repo_root, projects_doc)
     except Exception:  # noqa: BLE001
         pass
 

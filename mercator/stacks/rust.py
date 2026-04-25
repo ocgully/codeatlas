@@ -36,19 +36,41 @@ def build_systems(project_root: Path) -> dict:
         raise RuntimeError(f"cargo metadata failed: {out.stderr.strip()}")
 
     raw = json.loads(out.stdout)
-    workspace_root = raw.get("workspace_root") or str(project_root)
+    # Paths in the output are rebased to `project_root`, not to the
+    # cargo-discovered workspace root. When project_root is itself a member
+    # crate of a larger workspace, the project's atlas page should live at
+    # its own root — `manifest_path` like "Cargo.toml", not
+    # "crates/bevy_a11y/Cargo.toml".
+    project_root_resolved = project_root.resolve()
 
     def rel(p: str) -> str:
         try:
-            return PurePath(os.path.relpath(p, workspace_root)).as_posix()
+            return PurePath(os.path.relpath(p, project_root_resolved)).as_posix()
         except ValueError:
             return p  # different drive — fall back, rare
+
+    # A project corresponds to exactly one Cargo.toml — the one at its
+    # `project_root`. cargo metadata returns every workspace member when
+    # run from a member crate; we filter to only the package whose manifest
+    # is `<project_root>/Cargo.toml`. Sibling workspace members are their
+    # own projects and live on their own atlas pages.
+    own_manifest = (project_root_resolved / "Cargo.toml").resolve()
+
+    def _belongs_to_project(manifest_path: str) -> bool:
+        if not manifest_path:
+            return False
+        try:
+            return Path(manifest_path).resolve() == own_manifest
+        except OSError:
+            return False
 
     systems: List[dict] = []
     # Workspace members only (local packages have source=null).
     for pkg in raw.get("packages", []):
         if pkg.get("source") is not None:
             continue
+        if not _belongs_to_project(pkg.get("manifest_path", "")):
+            continue  # sibling workspace member — its own project
         kinds = sorted({k for t in pkg.get("targets", []) for k in t.get("kind", [])})
         deps = [
             {
