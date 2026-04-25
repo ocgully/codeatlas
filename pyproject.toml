@@ -3,14 +3,14 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "mercator"
-version = "0.5.0"
+name = "codeatlas"
+version = "0.6.0"
 description = "Layered, AI-friendly codemap CLI for agent consumption. Produces systems/contracts/symbols slices in JSON."
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
 authors = [{ name = "Christopher Gulliver" }]
-keywords = ["mercator", "codemap", "ai", "agents", "code-intelligence", "rust", "unity", "dart"]
+keywords = ["codeatlas", "mercator", "codemap", "ai", "agents", "code-intelligence", "rust", "unity", "dart"]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
@@ -34,17 +34,19 @@ Issues = "https://github.com/ocgully/mercator/issues"
 
 [project.scripts]
 # New primary entry point.
-mercator = "mercator.cli:main"
-# Deprecation shim — prints a stderr warning and forwards to mercator.
-# Scheduled for removal in the release after next.
-codemap = "mercator.cli:deprecated_main"
+codeatlas = "codeatlas.cli:main"
+# Deprecation shim — prints a stderr warning and forwards to `main`.
+# Scheduled for removal in v2.0 (kept for two minor cycles).
+mercator = "codeatlas.cli:main_deprecated_alias"
+# Double-legacy shim from the original pre-mercator name.
+codemap = "codeatlas.cli:deprecated_main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["mercator*"]
+include = ["codeatlas*"]
 
 [tool.setuptools.package-data]
-"mercator.render.atlas" = [
+"codeatlas.render.atlas" = [
   "templates/*.html",
   "static/*.css",
   "static/*.js",

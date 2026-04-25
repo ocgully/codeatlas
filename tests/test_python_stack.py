@@ -6,7 +6,7 @@ from typing import Optional
 
 import pytest
 
-from mercator.stacks import python as pystack
+from codeatlas.stacks import python as pystack
 
 
 # ---------------------------------------------------------------------------

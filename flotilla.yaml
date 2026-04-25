@@ -1,26 +1,29 @@
-# Mercator as a Flotilla plugin.
+# codeatlas (formerly mercator) as a Flotilla plugin.
 #
-# `flotilla install mercator` pip-installs Mercator and composes the
+# `flotilla install codeatlas` pip-installs codeatlas and composes the
 # contributions below into the consumer project's .claude/.
 #
 # See https://github.com/ocgully/mercator for the underlying tool.
 
-name: mercator
-version: 0.5.0
+name: codeatlas
+aliases:
+  - mercator   # legacy plugin name; resolves to this manifest
+  - codemap    # double-legacy
+version: 0.6.0
 description: Layered, AI-friendly codemap CLI for agent consumption
 homepage: https://github.com/ocgully/mercator
 license: MIT
 kind: tool
 
 python_package:
-  name: mercator
+  name: codeatlas
   extras: []
 
 contributes:
   agents: plugin/agents/
   commands: plugin/commands/
 
-# Mercator's hooks-install path is a separate manual step (`mercator
+# codeatlas's hooks-install path is a separate manual step (`codeatlas
 # hooks install`) since it needs a real source tree to scan first.
 # We do not run it on plugin install.
 

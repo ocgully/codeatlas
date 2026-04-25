@@ -7,8 +7,8 @@ from typing import Optional
 
 import pytest
 
-from mercator import SCHEMA_VERSION
-from mercator.projects import _slug, detect_projects
+from codeatlas import SCHEMA_VERSION
+from codeatlas.projects import _slug, detect_projects
 
 
 # ---------------------------------------------------------------------------

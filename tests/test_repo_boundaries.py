@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from mercator.repo_boundaries import (
+from codeatlas.repo_boundaries import (
     SCAFFOLD_JSON,
     evaluate,
     has_blocking_violations,

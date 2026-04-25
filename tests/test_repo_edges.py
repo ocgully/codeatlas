@@ -7,9 +7,9 @@ from typing import Optional
 
 import pytest
 
-from mercator import paths
-from mercator.projects import write_projects
-from mercator.repo_edges import compute_edges
+from codeatlas import paths
+from codeatlas.projects import write_projects
+from codeatlas.repo_edges import compute_edges
 
 
 # ---------------------------------------------------------------------------

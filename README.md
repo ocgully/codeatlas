@@ -1,12 +1,22 @@
-# mercator
+# codeatlas (formerly mercator)
 
-> **Flotilla plugin.** Mercator ships a `plugin/` directory + `flotilla.yaml`
+> **Renamed from `mercator` (April 2026).** Package, CLI, and on-disk dir
+> all migrate from `mercator` / `.mercator/` to `codeatlas` / `.codeatlas/`.
+> The old `mercator` CLI entry point still installs as a deprecation alias
+> (prints a stderr warning, forwards to `codeatlas`). The legacy
+> `.mercator/` directory is auto-detected on read; migrate in-place with
+> `codeatlas migrate-from-mercator`. Alias scheduled for removal in v2.0
+> (i.e. kept for two minor cycles). Earlier name `codemap` is also still
+> supported as a double-legacy shim.
+
+> **Flotilla plugin.** codeatlas ships a `plugin/` directory + `flotilla.yaml`
 > at the repo root, so downstream projects can install it via
-> `flotilla install mercator`. See [`plugin/README.md`](plugin/README.md).
+> `flotilla install codeatlas` (or the legacy `flotilla install mercator`,
+> which resolves through the alias).
 
 A layered, AI-friendly codemap CLI for **monorepos and single-project repos**.
 Produces structured views of every project in a repo
-(projects → systems → contracts → symbols → assets) under `.mercator/`, and —
+(projects → systems → contracts → symbols → assets) under `.codeatlas/`, and —
 more importantly — exposes a **query API** that agents use to pull minimal,
 typed slices on demand instead of reading whole MD files.
 
@@ -19,14 +29,11 @@ project count: single-project repos get a familiar single-page atlas;
 multi-project repos get a repo overview page with a project-graph + cards
 linking into per-project atlases.
 
-> **Renamed from `codemap`** (April 2026). Honours Gerardus Mercator, who
-> published the first book to use "atlas" as the term for a collection of
-> maps. Ecosystem rhythm is now **mercator · hopewell · pedia**.
->
-> The `codemap` CLI entrypoint still ships for one release cycle as a
-> deprecation shim: it prints a stderr warning and forwards to `mercator`.
-> Storage directory renamed from `.codemap/` to `.mercator/`; use
-> `mercator migrate` to rename it in place.
+> **Migration history.** Originally shipped as `codemap` → renamed
+> `mercator` → renamed `codeatlas`. Both legacy CLI entry points remain as
+> deprecation shims for two minor releases. Storage dirs are detected in
+> priority order: `.codeatlas/` (preferred) → `.mercator/` → `.codemap/`.
+> Run `codeatlas migrate-from-mercator` to rename the storage dir in place.
 
 **Design goals** (in order):
 
@@ -46,7 +53,9 @@ linking into per-project atlases.
 ## Install
 
 ```bash
-pip install mercator
+pip install codeatlas
+# legacy: `pip install mercator` will continue to work for two minor
+# cycles via the deprecation-shim package on PyPI.
 # or from source:
 git clone https://github.com/ocgully/mercator
 pip install -e mercator/

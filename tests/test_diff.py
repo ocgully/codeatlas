@@ -10,7 +10,7 @@ from typing import Iterable
 
 import pytest
 
-from mercator.diff import (
+from codeatlas.diff import (
     LEGACY_PROJECT_ID,
     _load_ref_state,
     compute_diff,
